@@ -1,0 +1,136 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ * require_tree .
+ * require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "reset.css";
+
+
+$background_color: gainsboro;
+$color_where_am_i: MintCream;
+$footer_and_header_color: darkseagreen;
+
+$color: white;
+$color_nav_a: #808080;
+
+$width_device: 100%;
+$register_width: $width_device/4;
+$height_header: 100px;
+$height_footer: 100px;
+
+@import "style.scss";
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,900,200);
+
+
+body{
+	font-family: 'Raleway', sans-serif;
+	background: $color_where_am_i;
+	color: $color;
+}
+
+label{
+	display: block;
+}
+
+.container{
+	width: $width_device;
+	height: 650px;
+  	margin: 0 auto;
+  	background: $background_color;
+  	text-align: center;
+  	font-size: 40px;
+  	padding: 0px;
+}
+
+.header:before {
+  content: " ";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -5px;
+}
+
+.header {
+  background: $footer_and_header_color;
+  height: $height_header;
+  width: $width_device;
+  margin: 0 auto;
+}
+
+.header > span{
+	font-weight: 900;
+	float: left;
+	padding-left: 20px;
+}
+
+.header > span a{
+	color: $color;
+	text-decoration: none;
+}
+
+.header > span a:hover{
+	color: $color_nav_a;
+	text-decoration: none;
+}
+
+@media all {
+nav {
+	font-weight: 400;
+	float: right;
+	padding-right: 20px;
+	font-size: 1.3vw;	
+}
+.header ul li{
+	clear: both;
+	display: inline-block;	
+	padding-top: 15px;
+	margin-right: 20px;
+}
+
+.header ul li a{
+	color: $color;
+	text-decoration: none;
+}
+
+.header ul li a:hover{
+	color: $color_nav_a;
+	text-decoration: none;
+}
+
+}
+
+.footer:before {
+  content: " ";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -5px;
+}
+
+@media all {
+.footer{
+	background: $footer_and_header_color;
+  	height: $height_footer;
+  	width: $width_device;
+  	margin: 0 auto;
+  	text-align: center;
+  	font-size: 1.1vw;
+}
+}
+
+

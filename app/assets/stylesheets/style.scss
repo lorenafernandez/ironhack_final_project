@@ -1,0 +1,46 @@
+$color_link_register: darkseagreen;
+
+.register{
+	content: " ";
+	background: grey;
+	width: $register_width;
+	height: 200px;
+	text-align: center;
+	display: block;
+	left: $width_device/2-$register_width/2;
+	position: absolute;
+	margin-top: 125px;
+}
+
+@media all {
+.register p{
+	margin-top: 10px;
+	color: black;
+	z-index: 2;	
+	font-size: 1.5vw;
+}
+
+.register p a{
+	color: $color;
+	text-decoration: none;	
+} 
+
+.register p a:hover{
+	color: $color_link_register;
+	text-decoration: none;
+}
+}
+
+.botton_register {
+	display: inline-block;
+	margin-bottom: 0;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	color: #333333;
+	border: 1px solid transparent;
+	padding: 6px 12px;
+	font-size: 14px;
+	border-radius: 5px;
+	width: $width_device - 20;
+}
