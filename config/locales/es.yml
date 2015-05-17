@@ -1,0 +1,15 @@
+es:
+ activerecord:
+  errors:
+   models:
+    user:
+     attributes:
+      email:
+       blank: "vacío"
+       taken: "en uso"
+      password:
+       too_short: "demasiado corto"
+       blank: "vacío"
+      password_confirmation: 
+       confirmation: " "
+

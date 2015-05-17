@@ -1,24 +1,32 @@
 $color_link_register: darkseagreen;
+$box_color: grey;
+$error_colors: lemonchiffon;
 
 .register{
 	content: " ";
-	background: grey;
+	background: $box_color;
 	width: $register_width;
 	height: 200px;
 	text-align: center;
 	display: block;
 	left: $width_device/2-$register_width/2;
 	position: absolute;
-	margin-top: 125px;
+	margin-top: 100px;
+}
+
+
+.sign_up{
+	height: 475px !important;
 }
 
 @media all {
 .register p{
 	margin-top: 10px;
 	color: black;
-	z-index: 2;	
+	z-index: 1;	
 	font-size: 1.5vw;
 }
+
 
 .register p a{
 	color: $color;
@@ -26,12 +34,12 @@ $color_link_register: darkseagreen;
 } 
 
 .register p a:hover{
-	color: $color_link_register;
+	color: $footer_and_header_color;
 	text-decoration: none;
 }
 }
 
-.botton_register {
+.btton_register{
 	display: inline-block;
 	margin-bottom: 0;
 	text-align: center;
@@ -43,4 +51,58 @@ $color_link_register: darkseagreen;
 	font-size: 14px;
 	border-radius: 5px;
 	width: $width_device - 20;
+}
+
+.sign_up{
+	content: " ";
+	background: $box_color;
+	width: $register_width;
+	height: 400px;
+	text-align: center;
+	display: block;
+	left: $width_device/2-$register_width/2;
+	position: absolute;
+	margin-top: 125px;
+}
+
+@media all {
+
+
+.my_field{
+	font-weight: 200;
+	color: black;
+	font-size: 1.2vw;	
+}
+
+}
+
+input, button, select, textarea{
+	border-radius: 5px;
+	width: $width_device - 20;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"]{
+	-webkit-appearance: button;
+	width: $width_device;
+	background: $footer_and_header_color;
+}
+
+.errors{
+	width: auto;
+}
+
+.errors p{
+	font-size: 15px;
+	color: $error_colors;
+}
+
+.errors ul{
+	font-size: 15px;
+    color: $error_colors
+	
+}
+
+.checkbox label {
+	text-align: left;
+  	margin-left: 35px;
 }

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 	<head>
 		  <meta charset="UTF-8">
 		  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		  <title>Yourart</title>
+		  <title>tuarte</title>
 
 		  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -21,19 +21,17 @@
 					<ul>
 						<li> <%= link_to "¿Qué es <strong>tuarte</strong>?".html_safe, que_es_tuarte_path %> </a> </li>
 						<li> <%= link_to "Regístrate" , sign_up_path %></li>
-						<li> <%= link_to "Inicia Sesión", sign_in_path %> </li>
+						<li> <%= link_to "Inicia Sesión", new_user_session_path %> </li>
 					</ul>
 				</nav>
 
 			</header>
 
 			<%= yield %>
-			<p class="notice"><%= notice %></p>
-       		<p class="alert"><%= alert %></p>
-
+			
 		</div>
 		<footer class="footer">
-			©COPYRIGHT 2015. GESTIONART. TODOS LOS DERECHOS RESERVADOS
+			©COPYRIGHT 2015. LORENA. TODOS LOS DERECHOS RESERVADOS
 		</footer>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 

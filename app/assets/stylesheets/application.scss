@@ -29,8 +29,8 @@ $color_nav_a: #808080;
 
 $width_device: 100%;
 $register_width: $width_device/4;
-$height_header: 100px;
-$height_footer: 100px;
+$height_header: 75px;
+$height_footer: 75px;
 
 @import "style.scss";
 
@@ -49,7 +49,7 @@ label{
 
 .container{
 	width: $width_device;
-	height: 650px;
+	height: 750px;
   	margin: 0 auto;
   	background: $background_color;
   	text-align: center;
