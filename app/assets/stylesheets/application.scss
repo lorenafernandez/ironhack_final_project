@@ -18,6 +18,7 @@
 @import "bootstrap";
 
 @import "reset.css";
+@import "flaticon.css";
 
 
 $background_color: gainsboro;
@@ -49,7 +50,6 @@ label{
 
 .container{
 	width: $width_device;
-	height: 750px;
   	margin: 0 auto;
   	background: $background_color;
   	text-align: center;
