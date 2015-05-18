@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150515143751) do
+ActiveRecord::Schema.define(version: 20150517173146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -29,6 +35,24 @@ ActiveRecord::Schema.define(version: 20150515143751) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.text     "biography"
+    t.string   "contact_person"
+    t.string   "phone_number"
+    t.string   "address"
+    t.string   "province"
+    t.string   "town"
+    t.string   "postal_code"
+    t.string   "web"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "instagram"
+    t.string   "pinterest"
+    t.string   "google_plus"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

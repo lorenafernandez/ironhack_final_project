@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   root to: 'site#home', as: :home
 
@@ -9,4 +9,8 @@ Rails.application.routes.draw do
 
   get '/users/password/new' => 'devise/passwords#new', as: :password_update
   get '/users/sign_up' => 'devise/registrations#new', as: :sign_up_from
+
+
+  get '/users/edit' => 'registrations#edit'
+
 end

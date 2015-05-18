@@ -34,7 +34,7 @@ $error_colors: lemonchiffon;
 } 
 
 .register p a:hover{
-	color: $footer_and_header_color;
+	color: black;
 	text-decoration: none;
 }
 }
@@ -63,6 +63,16 @@ $error_colors: lemonchiffon;
 	left: $width_device/2-$register_width/2;
 	position: absolute;
 	margin-top: 125px;
+}
+
+.sign_up p a{
+	color: $color;
+	text-decoration: none;	
+} 
+
+.sign_up p a:hover{
+	color: black;
+	text-decoration: none;
 }
 
 @media all {
