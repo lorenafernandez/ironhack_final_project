@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   get '/users/edit' => 'registrations#edit'
 
+  patch '/artists/register' => 'artists#show', as: :artists_register
+  put '/artists/register' => 'artists#show'
 end

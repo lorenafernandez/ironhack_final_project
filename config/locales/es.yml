@@ -4,6 +4,8 @@ es:
    models:
     user:
      attributes:
+      address:
+       blank: "no puede estar en blanco"
       email:
        blank: "vacío"
        taken: "en uso"
@@ -20,4 +22,12 @@ es:
       contact_person:
        blank: "no puede estar en blanco"
        invalid: "Sólo texto"
+      phone_number:
+       blank: "no puede estar en blanco"
+       too_short: "Introduce un número de teléfono correcto"
+       not_a_number: "Introduce un número de teléfono correcto"
+      postal_code:
+       blank: "no puede estar en blanco"
+      town:
+       blank: "no puede estar en blanco"
 
