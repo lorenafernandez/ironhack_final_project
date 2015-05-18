@@ -74,6 +74,7 @@ GEM
       mime-types
     pg (0.18.2)
     polyglot (0.3.5)
+    provincias (0.1.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -149,6 +150,7 @@ DEPENDENCIES
   jquery-rails
   paperclip (~> 4.2)
   pg
+  provincias
   pry-rails
   quiet_assets
   rails (= 4.1.2)

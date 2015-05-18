@@ -12,4 +12,12 @@ es:
        blank: "vacío"
       password_confirmation: 
        confirmation: " "
+      name:
+       blank: "no puede estar en blanco"
+       invalid: "Nombre no válido"
+      biography: 
+       invalid: "invalid"
+      contact_person:
+       blank: "no puede estar en blanco"
+       invalid: "Sólo texto"
 

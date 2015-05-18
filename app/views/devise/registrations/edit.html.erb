@@ -1,4 +1,4 @@
-<div class="register sign_up">
+
     <!--<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
     <%#= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -29,14 +29,15 @@
       </div>-->
 
     <!--- MODIFICANDO POR AQUÍ --> 
-
+<div class="register sign_up_step2">
 
     <p>REGÍSTRATE EN <strong> TUARTE </strong> </p>
+    <p><small> Todos los campos marcados con * son obligatorios </small></p>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
       <div class="my_field">
-        <%= f.label "Nombre" %>
+        <%= f.label "Nombre *" %>
         <%= f.text_field :name, autocomplete: "off" %>
       </div>
 
@@ -60,9 +61,26 @@
         <%= f.text_field :address %>
       </div>
 
-      <div class="my_field">
+      <!--<div class="my_field">
+        <%#= f.label "Provincia" %>
+        <%#= f.text_field :province %>
+      </div>-->
+
+      <%  provinces = Provincias.all
+          provinces_for_select = []
+          provinces.each do |p| 
+            provinces_for_select.push([p.name,p.name])
+          end
+          provinces_for_select.unshift(['Por favor, selecciona',0])
+      %>
+      
+      <div class="my_field" id="provinces">
         <%= f.label "Provincia" %>
-        <%= f.text_field :province %>
+        <%= f.select(:province) do %>
+            <% provinces_for_select.each do |c| -%>
+                <%= content_tag(:option, c.first, value: c.last) %>
+            <% end %>
+        <% end %>
       </div>
 
       <div class="my_field">
@@ -84,8 +102,6 @@
         <%= f.label "Tu imagen" %>
         <%= f.file_field :avatar %>
       </div>
-
-      <!-- AQUÍ FALTA EL AVATAR -->
 
       <div class="my_field">
         <%= f.label "Tus redes sociales" %>
