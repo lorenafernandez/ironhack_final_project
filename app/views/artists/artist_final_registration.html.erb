@@ -2,12 +2,22 @@
     <p>REGÍSTRATE EN <strong> TUARTE </strong> </p>
     <p><small> Todos los campos marcados con * son obligatorios </small></p>
 
+   <% id = params[:id] %>
+
 	<%= form_tag ('/artists/welcome') do %>
+
+		<%= hidden_field_tag :user_id, id %>
 
 		<div class="my_field">
 	        <%= label_tag "Eres *" %>
 	        <%= text_field_tag :you_are %>
       	</div>
+
+      	<div class="my_field">
+	        <%= label_tag "Tipo de profesional *" %>
+	        <%= text_field_tag :type_of_professional %>
+      	</div>
+
 
       	<div class="btton_register">
       	  	<%= submit_tag "Finalizar" %>
