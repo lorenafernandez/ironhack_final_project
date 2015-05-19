@@ -2,11 +2,11 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_one :artist
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessor :current_password, :phone_number
+  attr_accessor :current_password
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/    
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validate :phone_number_has_correct_format, on: :update
 
   def phone_number_has_correct_format
-  	errors.add(:phone_number, "Introduce un número de teléfono correcto") unless (phone_number.start_with?("6") || phone_number.start_with?("9"))
+ 	errors.add(:phone_number, "Introduce un número de teléfono correcto") unless (phone_number.start_with?("6") || phone_number.start_with?("9"))
   end
 
 

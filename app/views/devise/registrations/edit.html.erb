@@ -34,10 +34,11 @@
     <p>REGÍSTRATE EN <strong> TUARTE </strong> </p>
     <p><small> Todos los campos marcados con * son obligatorios </small></p>
 
-    <%= form_for(resource, as: resource_name, url: artists_register_path, html: { method: :put }) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(:user), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
-      <%= f.hidden_field :role, :value => :form_role%>
+    
 
+    <%#= f.hidden_field :id, :value => params[:form_role]%>
       <div class="my_field">
         <%= f.label "Nombre *" %>
         <%= f.text_field :name, autocomplete: "off" %>

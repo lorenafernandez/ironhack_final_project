@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   patch '/artists/register' => 'artists#show', as: :artists_register
   put '/artists/register' => 'artists#show'
+
+  get '/users/artist_final_registration/:user_id' => 'artists#artist_final_registration', as: :artist_final_registration
 end
