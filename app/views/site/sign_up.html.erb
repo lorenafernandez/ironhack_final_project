@@ -3,6 +3,6 @@
 
 	<p> <button type="button" class="btton_register" value="artist"> <%=link_to "Artistas", new_user_registration_path(:form_role => 'Artist')%> </button> </p>
 	
-	<p> <button type="button" class="btton_register" value="local"> <%= link_to "Galerías, cafés,...", home_path(:form_role => 'Local') %> </button> </p>
+	<p> <button type="button" class="btton_register" value="local"> <%= link_to "Galerías, cafés,...", new_user_registration_path(:form_role => 'Local') %> </button> </p>
 	<p> <small> ¿Ya tienes una cuenta? <%= link_to "Inicia Sesión", new_user_session_path %> </small> </p>
 </div>

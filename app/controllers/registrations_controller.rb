@@ -16,11 +16,12 @@ class RegistrationsController < Devise::RegistrationsController
   	  	@user.update_attribute(:facebook, params[:user][:facebook])
   	  	@user.update_attribute(:instagram, params[:user][:instagram])
   	  	@user.update_attribute(:pinterest, params[:user][:pinterest])
-		@user.update_attribute(:google_plus, params[:user][:google_plus])
-		@identification = @user.id
+		    @user.update_attribute(:google_plus, params[:user][:google_plus])
+		    
+        @identification = @user.id
 
   	  	redirect_to "/users/artist_final_registration/#{@identification}" if @user.role == 'Artist'
-  	  	redirect_to '/users/cancel' if @user.role == ''
+  	  	redirect_to "/users/local_final_registration/#{@identification}" if @user.role == 'Local'
   	  end
 
 	  protected
