@@ -1,6 +1,8 @@
-<div class="register sign_up">
+<div class="register sign_up last_register">
     <p>REGÍSTRATE EN <strong> TUARTE </strong> </p>
     <p><small> Todos los campos marcados con * son obligatorios </small></p>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
 
    <% id = params[:id] %>
 
@@ -10,12 +12,14 @@
 
 		<div class="my_field">
 	        <%= label_tag "Eres *" %>
-	        <%= text_field_tag :you_are %>
+	        <%= select_tag :you_are, "<option>Fotógrafo</option><option>Pintor</option><option>Escultor</option>
+	        						  <option>Arquitecto</option><option>Realizas videoarte </option>".html_safe %>
       	</div>
+
 
       	<div class="my_field">
 	        <%= label_tag "Tipo de profesional *" %>
-	        <%= text_field_tag :type_of_professional %>
+	        <%= select_tag :type_of_professional, "<option>Profesional consagrado</option><option>Profesional novel</option><option><em>Amateur</em></option>".html_safe %>
       	</div>
 
 
@@ -26,3 +30,6 @@
 	<% end %>
 
 </div>
+
+
+
