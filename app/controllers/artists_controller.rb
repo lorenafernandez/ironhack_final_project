@@ -8,6 +8,7 @@ class ArtistsController < ApplicationController
 	def create
 		@user = User.find params[:user_id]
 		@artist = @user.artists.create(artist_params)
+		render layout: "artist"
 	end
 
 	def show

@@ -21,15 +21,15 @@
 					<ul>
 						<li> <%= link_to "¿Qué es <strong>tuarte</strong>?".html_safe, que_es_tuarte_path %> </a> </li>
 						<li> <%= link_to "Regístrate" , sign_up_path %></li>
-						<li> <%= link_to "Inicia Sesión", new_user_session_path %> </li>
+						<li> <%= link_to "Cerrar Sesión", destroy_user_session_path %> </li>
 					</ul>
 				</nav>
 
 			</header>
 
-			<%= yield %>
+				<h1> PÁGINA PRINCIPAL (INICIO) DEL ARTISTA</h1>
 
-		
+			<%= yield %>
 			
 		</div>
 		<footer class="footer">

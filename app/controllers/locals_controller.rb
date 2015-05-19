@@ -8,6 +8,7 @@ class LocalsController < ApplicationController
 	def create
 		@user = User.find params[:user_id]
 		@local = @user.locals.create(local_params)
+		render layout: "local"
 	end
 
 	def show

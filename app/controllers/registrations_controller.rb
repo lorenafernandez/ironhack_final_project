@@ -20,8 +20,10 @@ class RegistrationsController < Devise::RegistrationsController
 		    
         @identification = @user.id
 
+       
+
   	  	redirect_to "/users/artist_final_registration/#{@identification}" if @user.role == 'Artist'
-  	  	redirect_to "/users/local_final_registration/#{@identification}" if @user.role == 'Local'
+        redirect_to "/users/local_final_registration/#{@identification}" if @user.role == 'Local'
   	  end
 
 	  protected
