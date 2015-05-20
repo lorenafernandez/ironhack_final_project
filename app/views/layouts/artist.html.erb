@@ -16,20 +16,18 @@
 		<div class="container">
 			<header class="header">
 				<span> <%= link_to "tuarte", home_path %> </span>
-
 				<nav>
 					<ul>
-						<li> <%= link_to "¿Qué es <strong>tuarte</strong>?".html_safe, que_es_tuarte_path %> </a> </li>
-						<li> <%= link_to "Regístrate" , sign_up_path %></li>
+						<li> <strong> <%= yield %> </strong> </li>
+						<li> <%= link_to "Edita tu perfil" ,  edit_user_registration_path %></li>
 						<li> <%= link_to "Cerrar Sesión", destroy_user_session_path %> </li>
 					</ul>
 				</nav>
 
 			</header>
 
-				<h1> PÁGINA PRINCIPAL (INICIO) DEL ARTISTA</h1>
-
-			<%= yield %>
+				<%= render 'show_information' %>
+			
 			
 		</div>
 		<footer class="footer">

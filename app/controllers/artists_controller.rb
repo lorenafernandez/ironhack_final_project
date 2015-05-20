@@ -12,11 +12,17 @@ class ArtistsController < ApplicationController
 	end
 
 	def show
+		@artist = User.where("id=?", params[:id])
+		render layout: "artist"
 	end
 
 	def artist_final_registration
 
 	end
+
+
+
+
 
 	private
 	def artist_params

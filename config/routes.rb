@@ -22,4 +22,7 @@ Rails.application.routes.draw do
 
   post '/artists/welcome' => 'artists#create' , as: :artists_welcome
   post '/locals/welcome' => 'locals#create' , as: :locals_welcome
+
+  get '/artists/welcome/:id' => 'artists#show' , as: :show_artist
+  get '/locals/welcome/:id' => 'locals#show' , as: :show_local
 end
