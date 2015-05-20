@@ -18,10 +18,13 @@ class RegistrationsController < Devise::RegistrationsController
   	  	@user.update_attribute(:pinterest, params[:user][:pinterest])
 		    @user.update_attribute(:google_plus, params[:user][:google_plus])
 		    
-        @identification = @user.id
+        identification = @user.id
 
-  	  	redirect_to "/users/artist_final_registration/#{@identification}" if @user.role == 'Artist'
-        redirect_to "/users/local_final_registration/#{@identification}" if @user.role == 'Local'
+        redirect_to artist_final_registration_path(identification) if @user.role == 'Artist'
+        redirect_to local_final_registration_path(identification) if @user.role == 'Local'
+
+  	  	#redirect_to "/users/artist_final_registration/#{@identification}" if @user.role == 'Artist'
+        #redirect_to "/users/local_final_registration/#{@identification}" if @user.role == 'Local'
   	  end
 
 	  protected
@@ -32,7 +35,7 @@ class RegistrationsController < Devise::RegistrationsController
 
 	  def update_resource(resource, params)
     	 resource.update_without_password(params)
-  	  end
+  	end
 
 
 end

@@ -12,19 +12,19 @@
 
 		<div class="my_field">
 	        <%= label_tag "Eres *" %>
-	        <%= select_tag :you_are, "<option> Fotógrafo </option>
-	        						  <option> Pintor </option>
-	        						  <option> Escultor </option>
-	        						  <option> Arquitecto </option>
-	        						  <option> Realizas videoarte </option>".html_safe %>
+	        <%= select_tag :you_are, "<option value = Fotografía > Fotógrafo </option>
+	        						  <option value = Pintura > Pintor </option>
+	        						  <option value = Escultura > Escultor </option>
+	        						  <option value = Arquitectura > Arquitecto </option>
+	        						  <option value = Artes Visuales > Realizas videoarte </option>".html_safe %>
       	</div>
 
 
       	<div class="my_field">
 	        <%= label_tag "Tipo de profesional *" %>
-	        <%= select_tag :type_of_professional, "<option> Profesional consagrado </option>
-	        									   <option>Profesional novel</option>
-	        									   <option> <em> Amateur </em> </option>".html_safe %>
+	        <%= select_tag :type_of_professional, "<option value = Consagrados > Profesional consagrado </option>
+	        									   <option value = Noveles >Profesional novel</option>
+	        									   <option value = Amateurs > <em> Amateur </em> </option>".html_safe %>
       	</div>
 
 
