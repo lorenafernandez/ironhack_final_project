@@ -26,9 +26,30 @@ $error_colors: lemonchiffon;
 	margin-top: 100px;
 }
 
+.description{
+	content: " ";
+	background: $box_color;
+	width: $register_width*3;
+	height: 450px;
+	text-align: center;
+	display: block;
+	position: absolute;
+	margin-top: 75px;
+	left: 175px;
+}
+
+.description p{
+	font-size: 25px;
+	margin-top: 40px;
+	padding-left: 100px;
+	padding-right: 40px;
+	text-align: justify;
+}
+
 
 .sign_up{
 	height: 475px !important;
+	margin-top: 70px !important;
 }
 
 .sign_up_step2{
