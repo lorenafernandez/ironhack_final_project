@@ -31,10 +31,11 @@
 
 
 	user = User.create :email => email, :password => 'abcd1234' , :name => name, :biography => biography,:contact_person => contact_person, :phone_number => phone_number, :address => address, :province => province,
-				:town => town, :postal_code => postal_code, :web => web, :avatar => avatar, :twitter => twitter, 
-				:facebook => facebook, :instagram => instagram, :pinterest => pinterest, :google_plus => google_plus, :role => 'Artist'
-	artist = user.create_artist(:you_are => 'Fotografía', :type_of_professional => 'Consagrados
-		')
+				:town => town, :postal_code => postal_code, :web => web, :avatar => avatar, 
+				:rrss => [twitter, facebook, instagram, pinterest, google_plus], :role => 'Artist'
+	artist = user.create_artist(:you_are => 'Fotografía', :type_of_professional => 'Consagrados',
+								:type_of_locals => 'Galería', :type_of_expositions => 'Individuales',
+								:agreements_with_locals => 'Sólo para aluiler')
 }
 
 1.upto(2){ 
@@ -60,9 +61,9 @@
 
 
 	user = User.create :email => email, :password => 'abcd1234' , :name => name, :biography => biography,:contact_person => contact_person, :phone_number => phone_number, :address => address, :province => province,
-				:town => town, :postal_code => postal_code, :web => web, :avatar => avatar, :twitter => twitter, 
-				:facebook => facebook, :instagram => instagram, :pinterest => pinterest, :google_plus => google_plus, :role => 'Local'
-	artist = user.create_local(:you_are => 'Galería', :shows => 'Fotografía',:type_of_professional => 'Amateur', :type_of_exposition => 'Un único artista', :agreements => 'Alquiler del local')
+				:town => town, :postal_code => postal_code, :web => web, :avatar => avatar, 
+				:rrss => [twitter, facebook, instagram, pinterest, google_plus], :role => 'Local'
+	local = user.create_local(:you_are => 'Galería', :shows => 'Fotografía',:type_of_professional => 'Amateur', :type_of_exposition => 'Un único artista', :agreements => 'Alquiler del local')
 }
 
 

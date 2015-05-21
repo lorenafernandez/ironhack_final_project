@@ -20,10 +20,8 @@ Rails.application.routes.draw do
   patch '/artists/register' => 'artists#show', as: :artists_register
   put '/artists/register' => 'artists#show'
 
-  get '/users/local_final_registration/:id' => 'locals#local_final_registration', as: :local_final_registration
-
-
-  post '/locals/welcome' => 'locals#create' , as: :locals_welcome
+  patch '/locals/register' => 'locals#show', as: :locals_register
+  put '/locals/register' => 'locals#show'
 
   get '/artists/welcome/:id' => 'artists#show' , as: :show_artist
   get '/locals/welcome/:id' => 'locals#show' , as: :show_local

@@ -4,7 +4,6 @@ class ArtistsController < ApplicationController
 	
 	def new
 		@artist = Artist.new(user_id: current_user.id)
-		binding.pry
 	end
 
 	def create
@@ -36,7 +35,7 @@ class ArtistsController < ApplicationController
 
 
 	def artist_params
-		params.require(:artist).permit(:you_are,:type_of_professional)
+		params.require(:artist).permit(:you_are, :type_of_professional, :type_of_locals, :agreements_with_locals, :type_of_expositions)
 	end
 
 end

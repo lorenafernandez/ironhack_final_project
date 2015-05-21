@@ -39,11 +39,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :town
       t.string :postal_code
       t.string :web
-      t.string :twitter
-      t.string :facebook
-      t.string :instagram
-      t.string :pinterest
-      t.string :google_plus
+      
+      t.string :rrss, array: true
+      
       t.string :role
       t.attachment :avatar
 
