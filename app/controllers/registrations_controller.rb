@@ -12,16 +12,25 @@ class RegistrationsController < Devise::RegistrationsController
         local.present? ? edit_local_path(local) : new_local_path
       end  
       redirect_to path
-
       else
         puts @user.errors
   	  end
     end
 
+    
+
     private
 
 	  def after_sign_up_path_for(resource)
-	    '/users/edit'
+      binding.pry
+      if params[:user][:role]=='Artist' 
+        artist = current_user.create_artist
+        path = show_artist_path(artist)       
+      else
+        local = current_user.create_local
+        path = show_local_path(local)
+      end
+      path
 	  end
 
 	  def update_resource(resource, params)
