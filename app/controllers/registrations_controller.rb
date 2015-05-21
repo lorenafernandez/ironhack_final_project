@@ -17,11 +17,9 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     
-
     private
 
 	  def after_sign_up_path_for(resource)
-      binding.pry
       if params[:user][:role]=='Artist' 
         artist = current_user.create_artist
         path = show_artist_path(artist)       
@@ -38,7 +36,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     def user_params
       params.require(:user).permit(:name, :biography, :contact_person, :phone_number, 
-        :address, :web, :avatar, {rrss: []}, :google_plus)
+                                   :address, :web, :avatar, {rrss: []}, :google_plus)
     end
 
 
