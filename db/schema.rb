@@ -11,31 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519135244) do
+ActiveRecord::Schema.define(version: 20150519133520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "artists", force: true do |t|
+  create_table "artists", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "you_are"
     t.string   "type_of_professional"
-  end
-
-  create_table "locals", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "locals", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "you_are"
     t.string   "shows"
     t.string   "type_of_professional"
     t.string   "type_of_exposition"
     t.string   "agreements"
-    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(version: 20150519135244) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "name"
     t.text     "biography"
     t.string   "contact_person"
@@ -57,19 +55,23 @@ ActiveRecord::Schema.define(version: 20150519135244) do
     t.string   "town"
     t.string   "postal_code"
     t.string   "web"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string   "twitter"
     t.string   "facebook"
     t.string   "instagram"
     t.string   "pinterest"
     t.string   "google_plus"
     t.string   "role"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "artists", "users"
+  add_foreign_key "locals", "users"
 end

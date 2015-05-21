@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+
   devise_for :users, :controllers => { :registrations => "registrations" }
+
+  resources :artists
+  resources :locals
 
   root to: 'site#home', as: :home
 
@@ -16,13 +20,12 @@ Rails.application.routes.draw do
   patch '/artists/register' => 'artists#show', as: :artists_register
   put '/artists/register' => 'artists#show'
 
-  get '/users/artist_final_registration/:id' => 'artists#artist_final_registration', as: :artist_final_registration
   get '/users/local_final_registration/:id' => 'locals#local_final_registration', as: :local_final_registration
 
 
-  post '/artists/welcome' => 'artists#create' , as: :artists_welcome
   post '/locals/welcome' => 'locals#create' , as: :locals_welcome
 
   get '/artists/welcome/:id' => 'artists#show' , as: :show_artist
   get '/locals/welcome/:id' => 'locals#show' , as: :show_local
+
 end

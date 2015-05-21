@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>
+<script>
+function geoLocate() {
+  if (window.navigator && window.navigator.geolocation) {
+    window.navigator.geolocation.getCurrentPosition(function(position){
+      getAddress(position.coords);
+    });
+  }
+}
+
+function getAddress(coords) {
+  var geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
+  geocoder.geocode({ 'latLng': latlng }, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      var location;
+      var types = ['locality', 'administrative_area_level_3', 'administrative_area_level_2', 'administrative_area_level_1'];
+      types.some(function (type) {
+        location = results.filter(function(address) { return address.types[0] === type; })[0];
+        if (typeof location !== 'undefined') {
+          return true;
+        }
+      });
+      if (typeof location === 'undefined' ) {
+        location = results[0];
+      }
+      if (typeof location !== 'undefined' ) {
+        $('#city').val(location.formatted_address);
+        $('#map').html('<img src="//maps.googleapis.com/maps/api/staticmap?center=' + coords.latitude + ',' + coords.longitude + '&zoom=13&size=430x200&sensor=false">');
+        
+      }
+    }
+  });  
+}
+</script>
+</head>
+<body>
+ 
+<a href="#" onclick="geoLocate();">Geolocate</a>
+<br>
+<input type="text" id="city">
+<br>
+<div id="map"></div>
+</body>
+ 
+</html>

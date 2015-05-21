@@ -1,0 +1,26 @@
+
+	<%= form_for artist do |f| %>
+
+		<div class="my_field">
+	        <%= f.label :you_are, "Eres *" %>
+	        <%= f.select :you_are, "<option value = Fotografía > Fotógrafo </option>
+	        						  <option value = Pintura > Pintor </option>
+	        						  <option value = Escultura > Escultor </option>
+	        						  <option value = Arquitectura > Arquitecto </option>
+	        						  <option value = Artes Visuales > Realizas videoarte </option>".html_safe %>
+      	</div>
+
+
+      	<div class="my_field">
+	        <%= f.label :type_of_professional,"Tipo de profesional *" %>
+	        <%= f.select :type_of_professional, "<option value = Consagrados > Profesional consagrado </option>
+	        									   <option value = Noveles >Profesional novel</option>
+	        									   <option value = Amateurs > <em> Amateur </em> </option>".html_safe %>
+      	</div>
+
+
+      	<div class="btton_register">
+      	  	<%= f.submit"Finalizar" %>
+      	</div>
+
+	<% end %>
