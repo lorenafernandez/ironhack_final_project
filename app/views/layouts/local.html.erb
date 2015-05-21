@@ -19,7 +19,7 @@
 
 				<nav>
 					<ul>
-						<li> <%= link_to "¿Qué es <strong>tuarte</strong>?".html_safe, que_es_tuarte_path %> </a> </li>
+						<li> <strong> <%= yield %> </strong> </li>
 						<li> <%= link_to "Edita tu perfil" ,  edit_user_registration_path %></li>
 						<li> <%= link_to "Cerrar Sesión", destroy_user_session_path %> </li>
 					</ul>
@@ -27,9 +27,7 @@
 
 			</header>
 
-				<h1> PÁGINA PRINCIPAL (INICIO) DEL LOCAL</h1>
-
-			<%= yield %>
+			<%= render '/layouts/first_time_you_come_in' %>
 			
 		</div>
 		<footer class="footer">

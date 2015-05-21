@@ -14,6 +14,18 @@ $error_colors: lemonchiffon;
 	margin-top: 100px;
 }
 
+.welcome{
+	content: " ";
+	background: $box_color;
+	width: $register_width*2;
+	height: 200px;
+	text-align: center;
+	display: block;
+	left: $width_device/2-$register_width;
+	position: absolute;
+	margin-top: 100px;
+}
+
 
 .sign_up{
 	height: 475px !important;

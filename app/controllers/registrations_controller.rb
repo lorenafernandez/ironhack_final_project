@@ -2,7 +2,6 @@ class RegistrationsController < Devise::RegistrationsController
 
 	 def update
 	 	@user = current_user
-    binding.pry
 
     if @user.update_attributes(user_params)
       path = if @user.role == 'Artist'
