@@ -31,13 +31,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       t.string :name
-      t.text :biography
+      t.text   :biography
       t.string :contact_person
       t.string :phone_number
       t.string :address
-      t.string :province
-      t.string :town
-      t.string :postal_code
       t.string :web
       
       t.string :rrss, array: true

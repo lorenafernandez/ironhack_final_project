@@ -18,9 +18,6 @@
 	contact_person = Faker::Name.title
 	phone_number = Faker::Number.number(9)
 	address = Faker::Address.street_address
-	province = Faker::Address.country
-	town = Faker::Address.city
-	postal_code = Faker::Number.number(5)
 	web =  Faker::Internet.url('my_web.es')
 	avatar = Faker::Avatar.image
 	twitter = Faker::Name.first_name
@@ -30,9 +27,12 @@
 	google_plus = Faker::Name.first_name
 
 
-	user = User.create :email => email, :password => 'abcd1234' , :name => name, :biography => biography,:contact_person => contact_person, :phone_number => phone_number, :address => address, :province => province,
-				:town => town, :postal_code => postal_code, :web => web, :avatar => avatar, 
-				:rrss => [twitter, facebook, instagram, pinterest, google_plus], :role => 'Artist'
+	user = User.create :email => email, :password => 'abcd1234' , :name => name, :biography => biography,
+					   :contact_person => contact_person, :phone_number => phone_number, 
+					   :address => address, :web => web, :avatar => avatar, 
+				       :rrss => [twitter, facebook, instagram, pinterest, google_plus], 
+				       :role => 'Artist'
+
 	artist = user.create_artist(:you_are => 'Fotografía', :type_of_professional => 'Consagrados',
 								:type_of_locals => 'Galería', :type_of_expositions => 'Individuales',
 								:agreements_with_locals => 'Sólo para aluiler')
@@ -48,9 +48,6 @@
 	contact_person = Faker::Name.title
 	phone_number = Faker::Number.number(9)
 	address = Faker::Address.street_address
-	province = Faker::Address.country
-	town = Faker::Address.city
-	postal_code = Faker::Number.number(5)
 	web =  Faker::Internet.url('web_del_local.es')
 	avatar = Faker::Avatar.image
 	twitter = Faker::Name.first_name
@@ -60,9 +57,12 @@
 	google_plus = Faker::Name.first_name
 
 
-	user = User.create :email => email, :password => 'abcd1234' , :name => name, :biography => biography,:contact_person => contact_person, :phone_number => phone_number, :address => address, :province => province,
-				:town => town, :postal_code => postal_code, :web => web, :avatar => avatar, 
-				:rrss => [twitter, facebook, instagram, pinterest, google_plus], :role => 'Local'
+	user = User.create :email => email, :password => 'abcd1234' , :name => name, :biography => biography,
+					   :contact_person => contact_person, :phone_number => phone_number, 
+					   :address => address, :web => web, :avatar => avatar, 
+				       :rrss => [twitter, facebook, instagram, pinterest, google_plus], 
+				       :role => 'Local'
+				       
 	local = user.create_local(:you_are => 'Galería', :shows => 'Fotografía',:type_of_professional => 'Amateur', :type_of_exposition => 'Un único artista', :agreements => 'Alquiler del local')
 }
 

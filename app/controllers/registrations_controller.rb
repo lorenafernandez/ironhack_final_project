@@ -2,6 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
 
 	 def update
 	 	@user = current_user
+    binding.pry
 
     if @user.update_attributes(user_params)
       path = if @user.role == 'Artist'
@@ -39,7 +40,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     def user_params
       params.require(:user).permit(:name, :biography, :contact_person, :phone_number, 
-        :address,:province, :town, :postal_code, :web, :avatar, {rrss: []}, :google_plus)
+        :address, :web, :avatar, {rrss: []}, :google_plus)
     end
 
 

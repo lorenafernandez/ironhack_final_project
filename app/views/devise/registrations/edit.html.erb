@@ -28,7 +28,11 @@
         <%#= f.password_field :current_password, autocomplete: "off" %>
       </div>-->
 
-    <!--- MODIFICANDO POR AQUÍ --> 
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>
+
+
+
 <div class="register sign_up_step2">
 
     <p>REGÍSTRATE EN <strong> TUARTE </strong> </p>
@@ -40,75 +44,45 @@
 
     <%#= f.hidden_field :id, :value => params[:form_role]%>
       <div class="my_field">
-        <%= f.label "Nombre *" %>
+        <%= f.label :name, "Nombre *" %>
         <%= f.text_field :name, autocomplete: "off" %>
       </div>
 
       <div class="my_field">
-        <%= f.label "Introduce una breve biografía" %>
+        <%= f.label :biography, "Introduce una breve biografía" %>
         <%= f.text_area :biography , :rows => "10"%>
       </div>
 
       <div class="my_field">
-        <%= f.label "Persona de contacto *" %>
+        <%= f.label :contact_person, "Persona de contacto *" %>
         <%= f.text_field :contact_person %>
       </div>
 
       <div class="my_field">
-        <%= f.label "Teléfono *" %>
+        <%= f.label :phone_number, "Teléfono *" %>
         <%= f.text_field :phone_number %>
       </div>
 
       <div class="my_field">
-        <%= f.label "Dirección *" %>
-        <%= f.text_field :address %>
+      <div class="button" onclick="geoLocate();"> <strong> Te geolocalizamos </strong> </div>
+          <br>
+          <%= f.label :address, "Tu dirección" %>
+          <input type="text" id="city" name="user[address]">
+          <br>
+          <div id="map"></div>
       </div>
-
-      <!--<div class="my_field">
-        <%#= f.label "Provincia" %>
-        <%#= f.text_field :province %>
-      </div>-->
-
-      <%  provinces = Provincias.all
-          provinces_for_select = []
-          provinces.each do |p| 
-            provinces_for_select.push([p.name,p.name])
-          end
-          provinces_for_select.unshift(['Por favor, selecciona',0])
-      %>
-      
-      <div class="my_field" id="provinces">
-        <%= f.label "Provincia *" %>
-        <%= f.select(:province) do %>
-            <% provinces_for_select.each do |c| -%>
-                <%= content_tag(:option, c.first, value: c.last) %>
-            <% end %>
-        <% end %>
-      </div>
+     
 
       <div class="my_field">
-        <%= f.label "Localidad *" %>
-        <%= f.text_field :town %>
-      </div>
-
-      <div class="my_field">
-        <%= f.label "Código Postal *" %>
-        <%= f.text_field :postal_code %>
-      </div>
-
-      <div class="my_field">
-        <%= f.label "Tu página web" %>
+        <%= f.label :web, "Tu página web" %>
         <%= f.text_field :web %>
       </div>
 
       <div class="my_field">
-        <%= f.label "Tu imagen" %>
+        <%= f.label :avatar, "Tu imagen" %>
         <%= f.file_field :avatar %>
       </div>
 
-
-
-      
 
       <div class="my_field">
         <%= f.label "Tus redes sociales" %>

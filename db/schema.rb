@@ -54,9 +54,6 @@ ActiveRecord::Schema.define(version: 20150519133520) do
     t.string   "contact_person"
     t.string   "phone_number"
     t.string   "address"
-    t.string   "province"
-    t.string   "town"
-    t.string   "postal_code"
     t.string   "web"
     t.string   "rrss",                                             array: true
     t.string   "role"
