@@ -48,4 +48,6 @@ end
 
 gem "paperclip", "~> 4.2"
 
+gem 'traceroute'
+
 

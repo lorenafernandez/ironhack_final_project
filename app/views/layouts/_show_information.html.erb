@@ -1,4 +1,4 @@
-<p class="user">  <%= image_tag current_user.avatar.url(:medium) %> <span class="button"> ljksdjlksf</span>
+<p class="user">  <%= image_tag current_user.avatar.url(:medium) %> <span class="button"> <%= link_to "Añadir una Obra", new_artist_work_path(current_user.artist) if current_user.artist!=nil%> </span>
  </p>
 
 <%#= @local.you_are %>

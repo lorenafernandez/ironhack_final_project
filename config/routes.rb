@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :artists do
       get 'home', on: :member
+      resources :works
   end
 
   resources :locals do

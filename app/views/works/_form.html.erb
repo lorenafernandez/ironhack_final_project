@@ -1,0 +1,33 @@
+
+	<div class="register sign_up last_register">
+    <p>AÑADE UNA OBRA EN <strong> TUARTE </strong> </p>
+    <p><small> Todos los campos marcados con * son obligatorios </small></p>
+	
+	<%= form_for [@artist, @work] do |f| %>
+
+		<div class="my_field">
+		    <%= f.label :title, "Título *" %>
+			<%= f.text_field :title%>
+		</div>
+
+		<div class="my_field">
+		    <%= f.label :size, "Dimensiones *" %>
+			<%= f.text_field :size, :placeholder => " 50 x 50 cm"%>
+		</div>
+
+		<div class="my_field">
+		    <%= f.label :price, "Precio *" %>
+			<%= f.text_field :price %>
+		</div>
+
+		<div class="my_field">
+	        <%= f.label :avatar, "Imagen" %>
+	        <%= f.file_field :avatar %>
+      	</div>
+		
+		<div class="btton_register">
+      	  	<%= submit_tag "Finalizar" %>
+      	</div>
+
+	<% end %>
+</div>

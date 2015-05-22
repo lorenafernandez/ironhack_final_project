@@ -25,12 +25,19 @@
 				</nav>
 
 			</header>
-			
-			<% if current_user.sign_in_count == 1 %>
-				<%= render '/layouts/first_time_you_come_in' %>
+
+			<% if  !@work.nil? && @work.new_record? %>
+				<%= render '/works/form' %>
 			<% else %>
-				<%= render '/layouts/show_information' %>
+				<% if current_user.sign_in_count == 1 %>
+					<%= render '/layouts/first_time_you_come_in' %>
+				<% else %>
+					<%= render '/layouts/show_information' %>
+				<% end %>
+
 			<% end %>
+			
+			
 			
 		</div>
 		<footer class="footer">

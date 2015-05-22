@@ -1,5 +1,6 @@
 class Artist < ActiveRecord::Base
 	belongs_to :user
+	has_many :works
 
 	TYPE_OF_ARTISTS = [["Fotógrafo", "Fotografía"], ["Pintor", "Pintura"], ["Escultor", "Escultura"], 
 						["Arquitecto","Arquitectura" ], ["Realizas videoarte", "Artes Visuales"]]
