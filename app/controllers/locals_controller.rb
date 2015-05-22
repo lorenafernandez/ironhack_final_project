@@ -26,6 +26,12 @@ class LocalsController < ApplicationController
 		end
 	end
 
+	def home
+		render layout: "local"	
+	end
+		    
+	
+
 	private
 
 	def load_local

@@ -25,9 +25,13 @@
 				</nav>
 
 			</header>
+		ARTIST
 
+		<% if current_user.sign_in_count == 1 %>
 				<%= render '/layouts/first_time_you_come_in' %>
-			
+			<% else %>
+				<%= render '/layouts/prueba' %>
+			<% end %>
 			
 		</div>
 		<footer class="footer">

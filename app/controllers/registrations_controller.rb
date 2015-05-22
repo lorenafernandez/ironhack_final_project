@@ -22,13 +22,14 @@ class RegistrationsController < Devise::RegistrationsController
 	  def after_sign_up_path_for(resource)
       if params[:user][:role]=='Artist' 
         artist = current_user.create_artist
-        path = show_artist_path(artist)       
+        path = artist_home_path       
       else
         local = current_user.create_local
-        path = show_local_path(local)
+        path = local_home_path
       end
       path
 	  end
+
 
 	  def update_resource(resource, params)
     	 resource.update_without_password(params)

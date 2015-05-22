@@ -4,6 +4,7 @@ class ArtistsController < ApplicationController
 	
 	def new
 		@artist = Artist.new(user_id: current_user.id)
+		render layout: "artist"
 	end
 
 	def create
@@ -24,6 +25,10 @@ class ArtistsController < ApplicationController
 		else
 			render 'edit'
 		end
+	end
+
+	def home
+		render layout: "artist"
 	end
 
 

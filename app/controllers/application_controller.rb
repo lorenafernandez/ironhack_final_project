@@ -6,21 +6,16 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource)
-  	 mail = params[:user][:email]
-  	 user = User.where("email=?",mail)
-  	 id = user.first.id
-  	 role = user.first.role
-  	 redirect_to_role(role,id)
+     if current_user.role =='Artist' 
+        artist = current_user.create_artist
+        path = artist_home_path      
+      else
+        local = current_user.create_local
+        path = local_home_path
+      end
+      path
   end
 
-  def redirect_to_role(role,id)
-  	if role == 'Artist'
-  		show_artist_path(id)
-  	elsif role == 'Local'
-  		show_local_path(id)
-  	end
-  			
-  end
 
   private
   	def configure_permitted_parameters
