@@ -19,7 +19,7 @@
 
 				<nav>
 					<ul>
-						<li> <strong> <%= yield %> </strong> </li>
+						<li> <strong> <%= current_user.name %> </strong> </li>
 						<li> <%= link_to "Edita tu perfil" ,  edit_user_registration_path %></li>
 						<li> <%= link_to "Cerrar Sesión", destroy_user_session_path %> </li>
 					</ul>
@@ -30,16 +30,16 @@
 			<% if current_user.sign_in_count == 1 %>
 				<%= render '/layouts/first_time_you_come_in' %>
 			<% else %>
-				<%= render '/layouts/prueba' %>
+				<%= render '/layouts/show_information' %>
 			<% end %>
 
-			LOCAL
 			
 		</div>
+
 		<footer class="footer">
 			©COPYRIGHT 2015. LORENA. TODOS LOS DERECHOS RESERVADOS
 		</footer>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
 
 	</body>
 

@@ -8,10 +8,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
      if current_user.role =='Artist' 
         artist = current_user.create_artist
-        path = artist_home_path      
+        path = home_artist_path      
       else
         local = current_user.create_local
-        path = local_home_path
+        path = home_local_path
       end
       path
   end

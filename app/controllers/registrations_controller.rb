@@ -22,10 +22,10 @@ class RegistrationsController < Devise::RegistrationsController
 	  def after_sign_up_path_for(resource)
       if params[:user][:role]=='Artist' 
         artist = current_user.create_artist
-        path = artist_home_path       
+        path = home_artist_path(artist)       
       else
         local = current_user.create_local
-        path = local_home_path
+        path = home_local_path(local)
       end
       path
 	  end

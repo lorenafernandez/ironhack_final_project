@@ -201,12 +201,18 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 
 }
 
-
-p img{
+.user img{
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 25px;
 	width: 175px;
 	height: 175px;
 	border-radius: 50%;
+
 }
+
 
 .button{
 	background: $footer_and_header_color;
