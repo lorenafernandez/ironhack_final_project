@@ -1,13 +1,13 @@
 class WorksController < ApplicationController
 
 	def new
-		@artist = Artist.find_by(user_id: params[:artist_id])
+		@artist = Artist.find (params[:artist_id])
 		@work = @artist.works.new
 		render layout: "artist"
 	end
 
 	def create
-		artist = Artist.new(user_id: current_user.id)
+		artist = Artist.find (params[:artist_id])
 		work = artist.works.new(work_params)
 		if work.save
   	 	flash[:notice] = "Work created successfully"

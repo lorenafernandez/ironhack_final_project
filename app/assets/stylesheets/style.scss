@@ -57,7 +57,7 @@ $error_colors: lemonchiffon;
 }
 
 .sign_up_step2{
-	height: 1175px !important;
+	height: 1375px !important;
 }
 
 @media all {
@@ -211,6 +211,11 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 
 }
 
+.background div{
+	background-image: url("images/background-tuarte-width-1440.jpg") no-repeat center center fixed;
+	
+}
+
 
 .button{
 	clear: both;
@@ -222,4 +227,13 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 	margin-right: 36px;
 	border-radius: 5px;
 	font-size: 22px;
+	}
+
+.localization_button{
+	background: $footer_and_header_color;
+	width: 288px;
+	height: 30px;
+	margin-left: 35px;
+	border-radius: 5px;
+	font-size: 20px;
 	}

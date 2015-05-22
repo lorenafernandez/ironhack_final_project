@@ -62,9 +62,11 @@
       </div>
 
       <div class="my_field">
-      <div class="button" onclick="geoLocate();"> <strong> Te geolocalizamos </strong> </div>
+
+          <div class="localization_button" onclick="geoLocate();"><strong> Te geolocalizamos </strong>  </div>
+          
           <br>
-          <%= f.label :address, "Tu dirección" %>
+          <%= f.label :address, "Tu dirección *" %>
           <input type="text" id="city" name="user[address]">
           <br>
           <div id="map"></div>

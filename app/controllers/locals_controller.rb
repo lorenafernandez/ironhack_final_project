@@ -4,6 +4,7 @@ class LocalsController < ApplicationController
 
 	def new
 		@artist = Artist.new(user_id: current_user.id)
+		render layout: "local"
 	end
 
 	def create
