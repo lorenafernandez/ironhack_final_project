@@ -1,8 +1,6 @@
 <p class="user">  <%= image_tag current_user.avatar.url(:medium) %> <span class="button"> <%= link_to "Añadir una Obra", new_artist_work_path(current_user.artist) if current_user.artist!=nil%> </span>
  </p>
 
-<%#= @local.you_are %>
-
 <div class="clearfix">
 
 	<aside class="my_aside">
@@ -10,64 +8,30 @@
 	</aside>
 
 	<section class="my_section">
-
-		<% matches = Hash.new %>
-		<% matches.default = 0 %>
-		<%  match_type_of_artist = Local.where("shows=?", current_user.artist.you_are)
-			match_type_of_artist.each do |match|
-			matches[match.id] += 1 %>
-		<% end%>
-
-		<% match_type_of_local = Local.where("you_are=?", current_user.artist.type_of_locals)%>
-		<% match_type_of_local.each do |match|
-			matches[match.id] += 1  %>
-		<%end%>
-
-		<% match_type_of_professional = Local.where("type_of_professional=?", current_user.artist.type_of_professional)%>
-		<% match_type_of_professional.each do |match|
-			matches[match.id] += 1  %>
-		<%end%>
-
-		<% match_type_of_agreements = Local.where("agreements=?", current_user.artist.agreements_with_locals)%>
-		<% match_type_of_agreements.each do |match|
-			matches[match.id] += 1  %>
-		<%end%>
-
-		<% match_type_of_expositions = Local.where("type_of_exposition=?", current_user.artist.type_of_expositions)%>
-		<% match_type_of_expositions.each do |match|
-			matches[match.id] += 1  %>
-		<%end%>
-			
-
-
-		<% matches = Hash[matches.sort_by{|k, v| v}.reverse]
-		   ids = matches.keys
-		   stars = matches.values 
-		   i = 0%>
-
-		<% ids.each do |id| 
-			local = Local.find id %>
+	
+	<% if current_user.artist!= nil %>
+			<% stars = current_user.artist.my_locals.values %>
+			<% ids = current_user.artist.my_locals.keys %>
+			<% i = 0 %> 
+			<% ids.each do |id|%>
+				<%local = Local.find id %>
 
 					<section class="clearfix">
-			<div class="item-local">
-					<p class ="item-media" > <%= image_tag local.user.avatar.url(:thumb) %> </p>
-					<div class="item-txt ">
-						<h3> <%= local.user.name %> </h3> 
-						<p>  <%= local.user.biography %></p> <p> <%= link_to "Ver más" , local_path(local) %></p>
-					</div>
-				</div>
-
-		</section>
-			
-			<% end %>
-
-	
-			
-
-		
-		<%# current_user.artist.my_locals.each do |local| %>
-			 <%#= local.name %> 
-		<%#end %>
+						<div class="item-local">
+								<p class ="item-media" > <%= image_tag local.user.avatar.url(:thumb) %> </p>
+								<div class="item-txt ">
+									<h3> <%= local.user.name %>  
+									<% stars[i].times do %>
+										<i class="flaticon-favourites7"></i>
+									<% end %>
+									</h3> 
+									<p>  <%= local.user.biography %></p> <p> <%= link_to "Ver más" , local_path(local) %></p>
+								</div>
+						</div>
+					</section>
+		    <% i+= 1 %>
+		    <% end %> 
+	<% end %>
 	
 	</section>
 

@@ -260,6 +260,41 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 	text-align: left;
 }
 
+.item-show{
+	display:table;
+	text-align: left;
+}
+
+.item-show p{
+	font-size: 20px;
+	margin-left: 120px;
+}
+
+.item-show p a{
+	color: $footer_and_header_color;
+	text-decoration: none;	
+} 
+
+.item-show p a:hover{
+	color: black;
+	text-decoration: none;
+}
+
+.item-show ul li{
+	display: inline-block;
+}
+
+.item-show ul li a{
+	color: $footer_and_header_color;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.item-show ul li a:hover{
+	color: black;
+	text-decoration: none;
+}
+
 .item-txt p{
 	font-size: 15px;
 }

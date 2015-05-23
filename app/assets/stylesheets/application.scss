@@ -69,6 +69,16 @@ label{
     padding: 0px;
 }
 
+.show_container{
+  width: $width_device;
+  height: auto;
+    margin: 0 auto;
+    background: $background_color;
+    text-align: center;
+    font-size: 40px;
+    padding: 0px;
+}
+
 .big_container{
 	width: $width_device;
 	height: 1750px;

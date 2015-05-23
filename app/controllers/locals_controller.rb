@@ -16,7 +16,7 @@ class LocalsController < ApplicationController
 	end
 
 	def show
-		render layout: "prueba"
+		render layout: "local"
 	end
 
 	def edit
