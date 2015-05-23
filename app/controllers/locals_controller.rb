@@ -17,6 +17,7 @@ class LocalsController < ApplicationController
 	end
 
 	def edit
+		render layout: "last_register_local"
 	end
 
 	def update

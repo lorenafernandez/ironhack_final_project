@@ -17,6 +17,7 @@ class ArtistsController < ApplicationController
 	end
 
 	def edit
+		render layout: "last_register_artist"
 	end
 
 	def update

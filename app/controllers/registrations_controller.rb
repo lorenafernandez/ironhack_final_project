@@ -1,4 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
+   
+#layout "edit_profile"
+
+   def edit
+    render 'edit', layout: "edit_profile"
+   end
+
 
 	 def update
 	 	@user = current_user
@@ -11,10 +18,11 @@ class RegistrationsController < Devise::RegistrationsController
         local = @user.local
         local.present? ? edit_local_path(local) : new_local_path
       end  
-      redirect_to path
+      redirect_to path, layout: "edit_profile"
       else
         puts @user.errors
   	  end
+
     end
 
     

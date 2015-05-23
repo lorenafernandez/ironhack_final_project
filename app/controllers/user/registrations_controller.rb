@@ -13,9 +13,10 @@ class User::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  #def edit
-  #  super
-  #end
+  def edit
+    super
+    render layout: "artist"
+  end
 
   # PUT /resource
   # def update

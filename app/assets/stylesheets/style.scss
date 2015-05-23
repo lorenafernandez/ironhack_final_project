@@ -57,7 +57,7 @@ $error_colors: lemonchiffon;
 }
 
 .sign_up_step2{
-	height: 1375px !important;
+	height: 1475px !important;
 }
 
 @media all {
@@ -88,13 +88,17 @@ $error_colors: lemonchiffon;
 	text-decoration: none;
 }
 
-.last_register_artists {
-	height: 300px !important;
+.last_register_artist {
+	height: 525px !important;
+  	margin-top: 37px !important;
 }
 
 .last_register_local {
-	height: 600px !important;
+	height: 550px !important;
+  	margin-top: 23px !important;
 }
+
+
 
 
 }
