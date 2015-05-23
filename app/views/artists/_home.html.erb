@@ -1,0 +1,11 @@
+
+<% if  !@work.nil? && @work.new_record? %>
+				<%= render '/works/form' %>
+<% else %>
+	<% if current_user.name.nil? %>
+		<%= render '/layouts/first_time_you_come_in' %>
+	<% elsif  !current_user.artist.you_are.nil?%>
+		<%= render '/layouts/show_information' %>
+	<% end %>
+
+<% end %>

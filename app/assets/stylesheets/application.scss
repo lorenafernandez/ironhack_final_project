@@ -59,6 +59,15 @@ label{
   	padding: 0px;
 }
 
+.home_container{
+  width: $width_device;
+  height: 925px;
+    margin: 0 auto;
+    background: $background_color;
+    text-align: center;
+    font-size: 40px;
+    padding: 0px;
+}
 
 .big_container{
 	width: $width_device;

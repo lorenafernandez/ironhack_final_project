@@ -2,6 +2,9 @@ class LocalsController < ApplicationController
 
 	before_action :load_local, only: [:update, :show, :edit]
 
+	def index
+	end
+
 	def new
 		@artist = Artist.new(user_id: current_user.id)
 		render layout: "local"
@@ -13,7 +16,7 @@ class LocalsController < ApplicationController
 	end
 
 	def show
-		render layout: "local"
+		render layout: "prueba"
 	end
 
 	def edit

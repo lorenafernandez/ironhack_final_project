@@ -193,15 +193,17 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 .my_section{
 	float: right;
 	width: 960px;
-	height: 300px;
+	height: 600px;
+    margin-right: 40px;
 	background: grey;
 }
 
 .my_aside{
 	float: left;
-	width: 400px;
+	width: 395px;
 	height: 300px;
 	background: grey;
+	margin-left: 20px;
 
 }
 
@@ -241,3 +243,33 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 	border-radius: 5px;
 	font-size: 20px;
 	}
+
+.item-local{
+	margin-bottom: 20px;
+}
+
+.item-media{
+	float: left;
+	margin-right: 20px;
+	width: 75px;
+	height: 50px;
+}
+
+.item-txt{
+	display:table;
+	text-align: left;
+}
+
+.item-txt p{
+	font-size: 15px;
+}
+
+.item-txt p a{
+	color: $footer_and_header_color;
+	text-decoration: none;	
+} 
+
+.item-txt p a:hover{
+	color: black;
+	text-decoration: none;
+}

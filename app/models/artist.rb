@@ -16,7 +16,9 @@ class Artist < ActiveRecord::Base
     TYPE_OF_EXPOSITIONS = [["Individuales", "Un único artista"],["En compañía de otros artistas", "Varios artistas"]]
 
 	def my_locals
-		#Local.where("shows=?", current_user.artist.you_are)
+		#binding.pry
+		
+		
 		#Local.where("shows=? OR type_of_professional=?",current_user.artist.you_are,current_user.artist.type_of_professional)
 	end
 end
