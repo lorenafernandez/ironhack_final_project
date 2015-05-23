@@ -6,10 +6,10 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
      if current_user.role =='Artist' 
-        artist = Artist.find_by :user_id => params[:user_id]
+        artist = Artist.find_by :user_id => current_user.id
         path = home_artist_path(artist)    
       else
-        local = Local.find_by :user_id => params[:user_id]
+        local = Local.find_by :user_id => current_user.id
         path = home_local_path(local)
       end
       path
