@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
 	end
 
 	def show
-		render layout: "prueba"
+		render layout: "artist"
 	end
 
 	def edit

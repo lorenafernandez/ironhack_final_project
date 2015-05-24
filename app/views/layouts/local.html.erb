@@ -17,7 +17,7 @@
 			
 			<% if params[:controller]=="locals" && params[:action]=="show" %>
 				<header class="header">
-				<span> <%= link_to "tuarte", home_path %> </span>
+					<span> <%= link_to "tuarte", home_path %> </span>
 					<nav>
 						<ul>
 							<li> <%= link_to "Volver", :back %> </li>
@@ -37,16 +37,13 @@
 					</nav>
 				</header>
 				<%= render '/locals/home' %>
-				<% end%>
+			<% end%>
 
-
-	
 		</div>
 
 		<footer class="footer">
 			©COPYRIGHT 2015. LORENA - IRONHACK. TODOS LOS DERECHOS RESERVADOS
 		</footer>
-
 
 	</body>
 
