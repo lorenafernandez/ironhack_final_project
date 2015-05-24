@@ -15,6 +15,7 @@ class Artist < ActiveRecord::Base
 
     TYPE_OF_EXPOSITIONS = [["Individuales", "Un único artista"],["En compañía de otros artistas", "Varios artistas"]]
 
+
 	def my_locals
 		matches = Hash.new
 		matches.default = 0
@@ -65,4 +66,66 @@ class Artist < ActiveRecord::Base
 	def sorted_locals(matches)
 		matches = Hash[matches.sort_by{|k, v| v}.reverse]
 	end
+
+	def get_provinces
+		provinces = []
+		Provincias.all.each do |province|
+			provinces.push([province.name, province.name])
+		end
+		self.class.const_set(:PROVINCES , provinces)
+	end
+
+	def filter_for_locals(show, province)
+		matches = Hash.new
+		matches.default = 0
+		find_match_locals(matches, show, province)	
+	end
+
+	def find_match_locals(matches, show, province)
+		match_type_of_local = Local.where("you_are=?", show)
+		match_type_of_local.each do |match|
+			matches[match.id] += 1  
+		end
+		get_province_from_address(matches, province)
+	end
+
+	def get_province_from_address(matches,province)
+		provinces = []
+		ids = []
+		matches.keys.each do |match|
+			 local = Local.find match
+			 address = local.user.address.split(", España")
+			 provinces.push(address.first.split().last)
+			 ids.push(local.id)
+		end
+
+		get_matches_provinces(provinces,ids,province,matches)
+	end
+		
+		def get_matches_provinces(provinces,ids,province,matches)
+			i = 0
+
+			provinces.each do |a|
+				matches[ids[i]]+=1 if province == a
+				i+=1
+			end
+			results_for_local_filters(matches)
+		end
+
+		def results_for_local_filters(matches)
+			values = matches.values
+			keys = matches.keys
+			final_ids = []
+			i = 0
+			values.each do |value|
+				
+				if value == 2 
+					final_ids.push(keys[i])
+				end
+				i+=1
+			end
+			return final_ids
+		end
+	
+
 end

@@ -1,11 +1,15 @@
 
 <% if  !@work.nil? && @work.new_record? %>
-				<%= render '/works/form' %>
+	<%= render '/works/form' %>
 <% else %>
 	<% if current_user.name.nil? %>
 		<%= render '/layouts/first_time_you_come_in' %>
 	<% elsif  !current_user.artist.you_are.nil?%>
-		<%= render '/layouts/show_information' %>
+		<% if params[:controller]=="artists" && params[:action]=="local_filters"%>
+			<%= render '/layouts/local_filters' %>
+		<% else %>
+			<%= render '/layouts/show_information' %>
+		<% end %>
 	<% end %>
 
 <% end %>

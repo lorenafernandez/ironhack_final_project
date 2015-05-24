@@ -32,6 +32,11 @@ class ArtistsController < ApplicationController
 		render layout: "artist"
 	end
 
+	def local_filters
+		@local_ids = current_user.artist.filter_for_locals(params[:shows], params[:province])
+		render layout: "artist"
+	end
+
 
 	private
 

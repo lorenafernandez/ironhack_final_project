@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   resources :artists do
-      get 'home', on: :member
+      member do
+        get 'home'
+        post 'local_filters'
+        patch 'local_filters'
+      end
       resources :works
   end
 

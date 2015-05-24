@@ -14,4 +14,5 @@ class Local < ActiveRecord::Base
 
 	TYPE_OF_AGREEMENTS = [["Alquiler del local","Alquiler del local"],["Comisión de venta" , "Comisión de venta"]]
 
+	
 end

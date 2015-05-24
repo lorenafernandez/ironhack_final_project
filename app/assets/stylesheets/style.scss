@@ -204,8 +204,13 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 	height: 300px;
 	background: grey;
 	margin-left: 20px;
-
 }
+
+.my_aside p{
+	font-size: 25px;
+	border-bottom: 1px solid white;
+}
+
 
 .user img{
 	display: inline-block;
@@ -234,6 +239,16 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 	border-radius: 5px;
 	font-size: 22px;
 	}
+
+.button a{
+	color: white;
+	text-decoration: none;
+}
+
+.button a:hover{
+	color: grey;
+	text-decoration: none;
+}
 
 .localization_button{
 	background: $footer_and_header_color;
@@ -307,4 +322,13 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 .item-txt p a:hover{
 	color: black;
 	text-decoration: none;
+}
+
+.additional-information p{
+	font-size:30px;
+}
+
+.additional-information ul li{
+	display: inline-block;
+	font-size:25px;
 }

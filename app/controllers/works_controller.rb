@@ -1,5 +1,9 @@
 class WorksController < ApplicationController
 
+	def index
+		render layout: "artist"
+	end
+
 	def new
 		@artist = Artist.find (params[:artist_id])
 		@work = @artist.works.new
@@ -17,6 +21,7 @@ class WorksController < ApplicationController
   	 	render 'new'
   	 end
 	end
+
 
 	private
 	def work_params
