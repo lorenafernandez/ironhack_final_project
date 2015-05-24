@@ -15,7 +15,7 @@ class WorksController < ApplicationController
 		work = artist.works.new(work_params)
 		if work.save
   	 	flash[:notice] = "Work created successfully"
-  	 	redirect_to home_path
+  	 	render layout: "artist"
   	 else
   	 	flash.now[:alert] = "Fatal!!!!"
   	 	render 'new'

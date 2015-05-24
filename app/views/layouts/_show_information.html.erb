@@ -4,7 +4,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 
-<p class="user">  <%= image_tag current_user.avatar.url(:medium) %> 
+
+
+  <% if params[:controller]=="works" && params[:action]=="create" %>
+		<%= render '/layouts/work_added' %>
+  <% else %>
+
+  <p class="user">  <%= image_tag current_user.avatar.url(:medium) %> 
 <span class="button"> <%= link_to "Añadir una Obra", new_artist_work_path(current_user.artist) if !current_user.artist.nil?%> </span>
 <% if !current_user.artist.works.empty?%>
   <a href="#myModal" class="button" data-toggle="modal" style="color: white;text-decoration: none;"> Listado de mis Obra</a>
@@ -97,3 +103,5 @@
 	            </div>
 	        </div>
 	    	</div>
+
+	    	<% end %>

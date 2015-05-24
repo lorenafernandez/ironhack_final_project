@@ -28,6 +28,17 @@ $error_colors: lemonchiffon;
 	left: $width_device/2-$register_width;
 	position: absolute;
 	margin-top: 100px;
+	color: white;
+}
+
+.welcome h4 a{
+	color: $color;
+	text-decoration: none;	
+}
+
+.welcome h4 a:hover{
+	color: black;
+	text-decoration: none;	
 }
 
 .description{
