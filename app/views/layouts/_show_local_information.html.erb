@@ -1,22 +1,61 @@
-<p> <%= image_tag current_user.avatar.url(:medium) %> </p>
+<p class="user"> <%= image_tag current_user.avatar.url(:medium) %> </p>
 <%#= @local.you_are %>
 
 <div class="clearfix">
 
 	<aside class="my_aside">
 		<p> ESTOY BUSCANDO... </p>
+
+		<div class="my_field">
+			<%= form_tag (local_filters_artist_path) do %>
+
+				  <div class="my_field">
+				    <%= label_tag 'you_are', 'Un artista:' %>
+					<%= select_tag 'you_are', options_for_select(Artist::TYPE_OF_ARTISTS) %>
+				</div>
+
+				<div class="my_field" id="provinces">
+				 	<% current_user.get_provinces %>
+			        <%= label_tag "province","En la provincia de:" %>
+			        <%= select_tag "province" , options_for_select(User::PROVINCES)%>
+			     </div>
+				 
+				  <div class="btton_register">
+      	  			<%= submit_tag "Buscar" %>
+      			  </div>
+
+			<% end %>
+		</div>
+
 	</aside>
 
 	<section class="my_section">
 	<ul>
-		<p> Los resultados </p>
-		<%# artist.my_locals.each do |local| %>
-			<li> <%#= local.name %> </li>
-		<%# end %>
-	</ul>
-	</section>
+		<% if !current_user.local.nil? %>			
+			<% stars = current_user.local.my_artists.values %>
+			<% ids = current_user.local.my_artists.keys %>
+			<% i = 0 %> 
+			<% ids.each do |id|%>
+				<%artist = Artist.find id %>
 
-	
+					<section class="clearfix">
+						<div class="item-local">
+								<p class ="item-media" > <%= image_tag artist.user.avatar.url(:thumb) %> </p>
+								<div class="item-txt ">
+									<h3> <%= artist.user.name %>  
+									<% stars[i].times do %>
+										<i class="flaticon-favourites7"></i>
+									<% end %>
+									</h3> 
+									<p>  <%= artist.user.biography %></p> <p> <%= link_to "Ver más" , artist_path(artist) %></p>
+								</div>
+						</div>
+					</section>
+		    <% i+= 1 %>
+		    <% end %> 
+
+		<% end %>
+	</section>
 
 </div>
 

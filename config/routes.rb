@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   end
 
   resources :locals do
-    get 'home', on: :member
+    member do
+      get 'home'
+      post 'artist_filters'
+      patch 'artist_filters'
+    end
   end
 
   root to: 'site#home', as: :home

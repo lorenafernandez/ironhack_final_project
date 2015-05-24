@@ -20,7 +20,6 @@ class Artist < ActiveRecord::Base
 		matches = Hash.new
 		matches.default = 0
 		find_match_type_of_artist(matches)	
-		#Local.where("shows=? OR type_of_professional=?",current_user.artist.you_are,current_user.artist.type_of_professional)
 	end
 
 	def find_match_type_of_artist(matches)
@@ -67,13 +66,7 @@ class Artist < ActiveRecord::Base
 		matches = Hash[matches.sort_by{|k, v| v}.reverse]
 	end
 
-	def get_provinces
-		provinces = []
-		Provincias.all.each do |province|
-			provinces.push([province.name, province.name])
-		end
-		self.class.const_set(:PROVINCES , provinces)
-	end
+	
 
 	def filter_for_locals(show, province)
 		matches = Hash.new

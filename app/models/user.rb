@@ -19,6 +19,14 @@ class User < ActiveRecord::Base
   validates :phone_number, numericality: true, length: 9..9, on: :update
   validate :phone_number_has_correct_format, on: :update
 
+  def get_provinces
+    provinces = []
+    Provincias.all.each do |province|
+      provinces.push([province.name, province.name])
+    end
+    self.class.const_set(:PROVINCES , provinces)
+  end
+
   private
 
   def phone_number_has_correct_format

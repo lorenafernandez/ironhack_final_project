@@ -4,8 +4,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 
-
-
   <% if params[:controller]=="works" && params[:action]=="create" %>
 		<%= render '/layouts/work_added' %>
   <% else %>
@@ -32,9 +30,9 @@
 				</div>
 
 				<div class="my_field" id="provinces">
-				 	<% current_user.artist.get_provinces %>
+				 	<% current_user.get_provinces %>
 			        <%= label_tag "province","En la provincia de:" %>
-			        <%= select_tag "province" , options_for_select(Artist::PROVINCES)%>
+			        <%= select_tag "province" , options_for_select(User::PROVINCES)%>
 			     </div>
 				 
 				  <div class="btton_register">
@@ -48,7 +46,7 @@
 
 	<section class="my_section">
 	
-	<% if current_user.artist!= nil %>
+	<% if !current_user.artist.nil? %>
 			<% stars = current_user.artist.my_locals.values %>
 			<% ids = current_user.artist.my_locals.keys %>
 			<% i = 0 %> 

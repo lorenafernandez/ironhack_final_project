@@ -26,7 +26,10 @@ function getAddress(coords) {
       }
       if (typeof location !== 'undefined' ) {
         $('#city').val(location.formatted_address);
-        $('#map').html('<img src="//maps.googleapis.com/maps/api/staticmap?center=' + coords.latitude + ',' + coords.longitude + '&zoom=13&size=360x200&markers=color:red%7Clabel:S%7C'+coords.latitude + ',' + coords.longitude + '&maptype=roadmap&sensor=false%22">');
+        $('#map').html('<img src="//maps.googleapis.com/maps/api/staticmap?center=' + 
+          coords.latitude + ',' + coords.longitude + 
+          '&zoom=15&size=360x200&markers=color:red%7Clabel:S%7C'+coords.latitude + ',' + 
+          coords.longitude + '&maptype=roadmap&sensor=false%22">');
       }
     }
   });  
