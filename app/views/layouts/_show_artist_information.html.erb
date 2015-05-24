@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+
+
+  <% if params[:controller]=="works" && params[:action]=="create" %>
+		<%= render '/layouts/work_added' %>
+  <% else %>
+
+  <p class="user">  <%= image_tag current_user.avatar.url(:medium) %> 
+<span class="button"> <%= link_to "Añadir una Obra", new_artist_work_path(current_user.artist) if !current_user.artist.nil?%> </span>
+<% if !current_user.artist.works.empty?%>
+  <a href="#myModal" class="button" data-toggle="modal" style="color: white;text-decoration: none;"> Listado de mis Obra</a>
+  <% end %>
+  </p>
+
+<div class="clearfix">
+
+	<aside class="my_aside">
+		<p> ESTOY BUSCANDO... </p>  
+		
+
+		<div class="my_field">
+			<%= form_tag (local_filters_artist_path) do %>
+
+				  <div class="my_field">
+				    <%= label_tag 'shows', 'Un espacio para mis obras' %>
+					<%= select_tag 'shows', options_for_select(Local::TYPE_OF_LOCALS) %>
+				</div>
+
+				<div class="my_field" id="provinces">
+				 	<% current_user.artist.get_provinces %>
+			        <%= label_tag "province","En la provincia de:" %>
+			        <%= select_tag "province" , options_for_select(Artist::PROVINCES)%>
+			     </div>
+				 
+				  <div class="btton_register">
+      	  			<%= submit_tag "Buscar" %>
+      			  </div>
+
+			<% end %>
+		</div>
+
+	</aside>
+
+	<section class="my_section">
+	
+	<% if current_user.artist!= nil %>
+			<% stars = current_user.artist.my_locals.values %>
+			<% ids = current_user.artist.my_locals.keys %>
+			<% i = 0 %> 
+			<% ids.each do |id|%>
+				<%local = Local.find id %>
+
+					<section class="clearfix">
+						<div class="item-local">
+								<p class ="item-media" > <%= image_tag local.user.avatar.url(:thumb) %> </p>
+								<div class="item-txt ">
+									<h3> <%= local.user.name %>  
+									<% stars[i].times do %>
+										<i class="flaticon-favourites7"></i>
+									<% end %>
+									</h3> 
+									<p>  <%= local.user.biography %></p> <p> <%= link_to "Ver más" , local_path(local) %></p>
+								</div>
+						</div>
+					</section>
+		    <% i+= 1 %>
+		    <% end %> 
+	<% end %>
+	
+	</section>
+
+</div>
+
+<div id="myModal" class="modal fade">
+	        <div class="modal-dialog">
+	            <div class="modal-content">
+	                <div class="modal-header">
+	                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+	                    </button>
+	                    <h4 class="modal-title" id="modal-title">Artista: <%= current_user.name %></h4>
+	                </div>
+	                <% current_user.artist.works.each do |work| %>
+		                <div class="modal-body" id="modal-body">
+		                <p class ="item-media" > <%= image_tag work.avatar.url(:thumb) %> </p>
+		                    <p><%= work.title %></p>
+		                </div>
+		                <div class="additional-information" id="additional-information">
+		                <ul>
+	                    	<li>Dimensiones: <small><%= work.size %>cm </small></li>
+	                    	<li>Precio: <small><%= work.price %>€</small></li> 
+	                    </ul>
+	                </div>
+	                <% end %>
+	                
+	                <div class="modal-footer">
+	                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                </div>
+	            </div>
+	        </div>
+	    	</div>
+
+	    	<% end %>
