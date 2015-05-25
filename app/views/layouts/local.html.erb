@@ -13,32 +13,8 @@
 	</head>
 
 	<body>
-		<div class="home_container">
-			
-			<% if params[:controller]=="locals" && params[:action]=="show" %>
-				<header class="header">
-					<span> <%= link_to "tuarte", home_path %> </span>
-					<nav>
-						<ul>
-							<li> <%= link_to "Volver", :back %> </li>
-						</ul>
-					</nav>
-				</header>
-				<%= render '/locals/show' %>
-			<% else %>
-				<header class="header">
-				<span> <%= link_to "tuarte", home_path %> </span>
-				  	<nav>
-						<ul>
-							<li> <strong> <%= current_user.name %> </strong> </li>
-							<li> <%= link_to "Edita tu perfil" ,  edit_user_registration_path %></li>
-							<li> <%= link_to "Cerrar Sesión", destroy_user_session_path %> </li>
-						</ul>
-					</nav>
-				</header>
-				<%= render '/locals/home' %>
-			<% end%>
-
+		<div class="home_container local">
+			<%= yield %>
 		</div>
 
 		<footer class="footer">

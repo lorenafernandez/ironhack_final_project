@@ -1,0 +1,10 @@
+<header class="header">
+	<span> <%= link_to "tuarte", home_local_path %> </span>
+		<nav>
+			<ul>
+				<li> <strong> <%= current_user.name %> </strong> </li>
+				<li> <%= link_to "Edita tu perfil" ,  edit_user_registration_path %></li>
+				<li> <%= link_to "Cerrar Sesión", destroy_user_session_path %> </li>
+			</ul>
+		</nav>
+</header>

@@ -1,0 +1,25 @@
+<%= render '/artists/private_header' %>
+
+<div class="description">
+	<% if @artists.blank? %>
+		<p> Lo sentimos, en este momento no existen coincidencias en nuestra base de datos.</p>
+		<p> ¡Inténtalo de nuevo con otros parámetros de búsqueda!</p>
+		<p> ¡Gracias! </p>
+	<% else %>
+		<% @artists.each do |artist| %>
+			<section class="clearfix">
+				<div class="item-local">
+					<section class="clearfix">
+						<div class="item-local">
+							<p class ="item-media"><%=image_tag artist.user.avatar.url(:thumb) %> </p>
+							<div class="item-txt ">
+								<h3><strong><%=artist.you_are%></strong> - <%=artist.user.name %></h3><p> <%= artist.user.address%> </p>
+								<p> <%=artist.user.biography %><%=link_to "Ver más", artist_path(artist) %></p>
+							</div>
+						</div>
+					</section>
+				</div>
+			</section>			
+		<% end %>
+	<% end %> 
+</div>

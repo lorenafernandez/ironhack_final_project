@@ -30,35 +30,28 @@
 	</aside>
 
 	<section class="my_section">
-	<ul>
-		<% if current_user.local.present? %>			
-			<% stars = current_user.local.my_artists.values %>
-			<% ids = current_user.local.my_artists.keys %>
-			<% i = 0 %> 
-			<% ids.each do |id|%>
+		<% if current_user.local.present? %>
+			<% current_user.local.my_artists.each do |id, stars|%>
 				<%artist = Artist.find id %>
-
 					<section class="clearfix">
 						<div class="item-local">
-								<p class ="item-media" > <%= image_tag artist.user.avatar.url(:thumb) %> </p>
-								<div class="item-txt ">
-									<h3> <%= artist.user.name %>  
-									<% stars[i].times do %>
-										<i class="flaticon-favourites7"></i>
-									<% end %>
-									</h3> 
-									<p>  <%= artist.user.biography %></p> <p> <%= link_to "Ver más" , artist_path(artist) %></p>
-								</div>
+							<p class ="item-media" > <%= image_tag artist.user.avatar.url(:thumb) %> </p>
+							<div class="item-txt ">
+								<h3> <%= artist.user.name %> 
+								<% stars.times do %>
+									<i class="flaticon-favourites7"></i>
+								<% end %>
+								<% if stars<=5 %>
+									<%(5-stars).times do %>
+										<i class="flaticon-favourites-grey"></i>
+									<% end %> 
+								<% end %>
+								</h3> 
+								<p>  <%= artist.user.biography %></p> <p> <%= link_to "Ver más" , artist_path(artist) %></p>
+							</div>
 						</div>
-					</section>
-		    <% i+= 1 %>
-		    <% end %> 
-
+			<% end %> 
 		<% end %>
 	</section>
-
+					   
 </div>
-
-
-
-	    

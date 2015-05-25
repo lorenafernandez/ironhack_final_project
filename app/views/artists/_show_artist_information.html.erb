@@ -45,7 +45,6 @@
 			</aside>
 
 			<section class="my_section show-artist-information">
-			
 				<% if current_user.artist.present? %>
 						<% current_user.artist.my_locals.each do |id, stars|%>
 							<%local = Local.find id %>

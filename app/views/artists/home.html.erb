@@ -1,5 +1,5 @@
 <%= render '/artists/private_header' %>
-<% if  !@work.nil? && @work.new_record? %>
+<% if @work.present? && @work.new_record? %>
 	<%= render '/works/form' %>
 <% else %>
 	<% if current_user.name.blank? %>

@@ -14,11 +14,11 @@ class Local < ActiveRecord::Base
 
 	TYPE_OF_AGREEMENTS = [["Alquiler del local","Alquiler del local"],["Comisión de venta" , "Comisión de venta"]]
 
-   delegate :name, to: :user
+   #delegate :name, to: :user
 
-    def to_param
-    	"#{id}-#{name.parameterize}"
-    end	
+    #def to_param
+    #	"#{id}-#{name.parameterize}"
+    #end	
 
 	def my_artists
 		matches = Hash.new
@@ -72,55 +72,12 @@ class Local < ActiveRecord::Base
 
 
 	##### FILTERS #####
+	
 	def filter_for_artists(show, province)
-		matches = Hash.new
-		matches.default = 0
-		find_match_artists(matches, show, province)	
-	end
-
-	def find_match_artists(matches, show, province)
-		match_type_of_local = Artist.where("you_are=?", show)
-		match_type_of_local.each do |match|
-			matches[match.id] += 1  
-		end
-		get_province_from_address(matches, province)
-	end
-
-	def get_province_from_address(matches,province)
-		provinces = []
-		ids = []
-		matches.keys.each do |match|
-			 artist = Artist.find match
-			 address = artist.user.address.split(", España")
-			 provinces.push(address.first.split().last)
-			 ids.push(artist.id)
-		end
-
-		get_matches_provinces(provinces,ids,province,matches)
-	end
-
-	def get_matches_provinces(provinces,ids,province,matches)
-		i = 0
-		provinces.each do |a|
-			matches[ids[i]]+=1 if province == a
-			i+=1
-		end
-		results_for_artist_filters(matches)
-	end
-
-	def results_for_artist_filters(matches)
-		values = matches.values
-		keys = matches.keys
-		final_ids = []
-		i = 0
-		values.each do |value|
-				
-			if value == 2 
-				final_ids.push(keys[i])
-			end
-			i+=1
-		end
-		return final_ids
+		Artist.joins(:user).where("artists.you_are = :show or users.address like :address", 
+					show: show, address: '%' + province + '%')
 	end
 
 end
+
+

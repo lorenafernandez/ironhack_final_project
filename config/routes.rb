@@ -5,13 +5,9 @@ Rails.application.routes.draw do
   resources :artists do
       member do
         get 'home'
-
-        post 'local_filters'
-        patch 'local_filters'
         get 'local_filters'
-        
+        post 'local_filters'     
       end
-      #resources :local_filters
       resources :works
   end
 
@@ -19,7 +15,6 @@ Rails.application.routes.draw do
     member do
       get 'home'
       post 'artist_filters'
-      patch 'artist_filters'
       get 'artist_filters'
     end
   end
