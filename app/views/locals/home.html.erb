@@ -1,0 +1,9 @@
+<% if current_user.name.nil?%>
+	<%= render '/layouts/first_time_you_come_in' %>
+<% elsif  !current_user.local.you_are.nil? || current_user.sign_in_count>1 %>
+	<% if params[:controller]=="locals" && params[:action]=="artist_filters"%>
+		<%= render '/layouts/artist_filters' %>
+	<% else %>
+		<%= render '/layouts/show_local_information' %>
+	<% end %>
+<% end %>

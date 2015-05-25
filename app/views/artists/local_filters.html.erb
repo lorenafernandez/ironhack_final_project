@@ -1,1 +1,29 @@
-local filters
+<%= render '/artists/private_header' %>
+
+
+<div class="description">
+	<% if @locals.empty? %>
+		<p> Lo sentimos, en este momento no existen coincidencias en nuestra base de datos.</p>
+		<p> ¡Inténtalo de nuevo con otros parámetros de búsqueda!</p>
+		<p> ¡Gracias! </p>
+	<% else %>
+		<% @locals.each do |local| %>
+			<section class="clearfix">
+				<div class="item-local">
+					<div class="item-show">
+						<section class="clearfix">
+							<div class="item-local">
+								<p class ="item-media" > <%= image_tag local.user.avatar.url(:thumb) %> </p>
+								<div class="item-txt ">
+									<h3> <strong><%= local.you_are%></strong> de <%= local.user.name %></h3> 
+									<p> <%= local.user.address%> </p>
+								    <p>  <%=local.user.biography %><%= link_to "Ver más" , local_path(local) %></p>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</section>			
+		<% end %>
+	<% end %> 
+</div>

@@ -1,2 +1,28 @@
+<% if @artist == current_user.artist %>
+	<%= render '/artists/private_header' %>
+<% else %>
+	<%= render '/artists/public_header' %>
+<% end %>
 
-
+<div class="description">	
+	<section class="clearfix">
+		<div class="item-local">
+			<p class ="item-media" > <%= image_tag @artist.user.avatar.url(:medium) %> </p>
+			<div class="item-show">
+				<h3> <strong>  <%= @artist.you_are%></strong> - <%= @artist.user.name %> </h3> 
+				<p> <strong> Biografía: </strong><%= @artist.user.biography %></p> 
+				<p> <strong> Persona de contacto: </strong><%= @artist.user.contact_person %> </p>
+				<p> <strong> Teléfono: </strong><%= @artist.user.phone_number %> </p>
+				<p> <strong> Dirección: </strong><%= @artist.user.address %> </p>
+				<ul>
+					<% if @artist.user.contact_person.present? %>
+						<li> <%= link_to "Página web",  @artist.user.web %></li>
+					<% end %>
+					<% @artist.user.rrss.each do |rrss| %>
+						<li><%= link_to_rrss(rrss) %>
+					<% end %>		
+				</ul>
+			</div>
+		</div>
+	</section>
+</div>

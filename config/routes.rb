@@ -5,10 +5,13 @@ Rails.application.routes.draw do
   resources :artists do
       member do
         get 'home'
+
         post 'local_filters'
         patch 'local_filters'
         get 'local_filters'
+        
       end
+      #resources :local_filters
       resources :works
   end
 

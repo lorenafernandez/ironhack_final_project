@@ -1,23 +1,22 @@
 class ArtistsController < ApplicationController
 
-	before_action :load_artist, only: [:update, :show, :edit]
+	before_action :load_artist, only: [:update, :edit, :local_filters]
+
+	layout "artist"
 	
 	def new
-		@artist = Artist.new(user_id: current_user.id)
-		render layout: "artist"
+		@artist = Artist.new(user_id: current_user.id)	
 	end
 
 	def create
 		@artist = current_user.create_artist(artist_params)
-		render layout: "artist"
 	end
 
 	def show
-		render layout: "artist"
+		@artist = Artist.find params[:id]
 	end
 
 	def edit
-		render layout: "last_register_artist"
 	end
 
 	def update
@@ -29,12 +28,10 @@ class ArtistsController < ApplicationController
 	end
 
 	def home
-		render layout: "artist"
 	end
 
 	def local_filters
-		@local_ids = current_user.artist.filter_for_locals(params[:shows], params[:province])
-		render layout: "artist"
+		@locals = @artist.filter_for_locals(params[:shows], params[:province])
 	end
 
 

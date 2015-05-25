@@ -21,7 +21,7 @@
 				<span> <%= link_to "tuarte", home_path %> </span>
 				<nav>
 					<ul>
-						<li> <strong> <%= current_user.name if !current_user.nil?%> </strong> </li>
+						<li> <strong> <%= current_user.name if current_user.present?%> </strong> </li>
 						<li> <%= link_to "Cerrar Sesión", destroy_user_session_path %> </li>
 					</ul>
 				</nav>

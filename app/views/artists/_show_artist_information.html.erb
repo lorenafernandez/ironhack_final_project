@@ -7,10 +7,9 @@
   <% if params[:controller]=="works" && params[:action]=="create" %>
 		<%= render '/layouts/work_added' %>
   <% else %>
-
 		  <p class="user">  <%= image_tag current_user.avatar.url(:medium) %> 
-		  		<span class="button"> <%= link_to "Añadir una Obra", new_artist_work_path(current_user.artist) if !current_user.artist.nil?%> </span>
-				<% if !current_user.artist.works.empty?%>
+		  		<span class="button"> <%= link_to "Añadir una Obra", new_artist_work_path(current_user.artist) if current_user.artist.present?%> </span>
+				<% if current_user.artist.works.present?%>
 			  			<a href="#myModal" class="button" data-toggle="modal" 
 			  			style="color: white;text-decoration: none;"> Listado de mis Obra</a>
 			    <% end %>
@@ -45,29 +44,30 @@
 
 			</aside>
 
-			<section class="my_section">
+			<section class="my_section show-artist-information">
 			
-				<% if !current_user.artist.nil? %>
-						<% stars = current_user.artist.my_locals.values %>
-						<% ids = current_user.artist.my_locals.keys %>
-						<% i = 0 %> 
-						<% ids.each do |id|%>
+				<% if current_user.artist.present? %>
+						<% current_user.artist.my_locals.each do |id, stars|%>
 							<%local = Local.find id %>
 
 								<section class="clearfix">
 									<div class="item-local">
 											<p class ="item-media" > <%= image_tag local.user.avatar.url(:thumb) %> </p>
 											<div class="item-txt ">
-												<h3> <%= local.user.name %>  
-												<% stars[i].times do %>
+												<h3> <%= local.user.name %> 
+												<% stars.times do %>
 													<i class="flaticon-favourites7"></i>
+												<% end %>
+												<% if stars<=5 %>
+													<%(5-stars).times do %>
+													   <i class="flaticon-favourites-grey"></i>
+													<% end %> 
 												<% end %>
 												</h3> 
 												<p>  <%= local.user.biography %></p> <p> <%= link_to "Ver más" , local_path(local) %></p>
 											</div>
 									</div>
 								</section>
-					    <% i+= 1 %>
 					    <% end %> 
 				<% end %>
 			

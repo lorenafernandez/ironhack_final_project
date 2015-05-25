@@ -39,6 +39,11 @@ margin-left: 20px;
 	color: #00aced;
 }
 
+.flaticon-favourites-grey:before {
+	content: "\e001";
+	color: lightgrey;
+}
+
 .icon_position{
 	position: absolute;
 	right: 40px;

@@ -36,6 +36,12 @@ $height_footer: 75px;
 
 @import "style.scss";
 
+html {
+ position: relative;
+ min-height: 100%;
+}
+
+
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,900,200);
 
 
@@ -43,6 +49,7 @@ body{
 	font-family: 'Raleway', sans-serif;
 	background: $color_where_am_i;
 	color: $color;
+  margin-bottom: 60px;
 }
 
 label{
@@ -50,6 +57,7 @@ label{
 }
 
 .container{
+  content: " ";
 	width: $width_device;
 	height: 675px;
   	margin: 0 auto;
@@ -60,14 +68,17 @@ label{
 }
 
 .home_container{
+  content: " ";
   width: $width_device;
-  height: 925px;
+  height: auto;
     margin: 0 auto;
     background: $background_color;
     text-align: center;
     font-size: 40px;
     padding: 0px;
 }
+
+
 
 .show_container{
   width: $width_device;
@@ -153,7 +164,6 @@ nav {
   display: inline-block;
   vertical-align: middle;
   margin-left: -5px;
-  z-index: 1;
 }
 
 @media all {
@@ -164,6 +174,9 @@ nav {
   	margin: 0 auto;
   	text-align: center;
   	font-size: 1.1vw;
+    position: absolute;
+    bottom: 0;
+    padding-top: 38px;
 }
 }
 

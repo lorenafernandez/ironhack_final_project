@@ -14,6 +14,11 @@ class Local < ActiveRecord::Base
 
 	TYPE_OF_AGREEMENTS = [["Alquiler del local","Alquiler del local"],["Comisión de venta" , "Comisión de venta"]]
 
+   delegate :name, to: :user
+
+    def to_param
+    	"#{id}-#{name.parameterize}"
+    end	
 
 	def my_artists
 		matches = Hash.new
