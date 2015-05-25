@@ -1,9 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
    
-#layout "edit_profile"
+   layout "edit_profile"
 
    def edit
-    render 'edit', layout: "edit_profile"
+    render 'edit'
    end
 
 
@@ -18,7 +18,7 @@ class RegistrationsController < Devise::RegistrationsController
         local = @user.local
         local.present? ? edit_local_path(local) : new_local_path
       end  
-      redirect_to path, layout: "edit_profile"
+      redirect_to path
       else
         puts @user.errors
   	  end
