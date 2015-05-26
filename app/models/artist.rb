@@ -35,12 +35,19 @@ class Artist < ActiveRecord::Base
 
 
   	def my_locals
-  		Rails.cache.fetch("my_locals", :expires_in => 1.day) do
+  		Rails.cache.fetch("my_locals", :expires_in => 5.minutes) do
     		locals = Local.all.map do |local|
 	      		local.calculate_stars_for_artist(self)
 	    	end
 	    locals.sort_by { |a| a.stars }.reverse
   		end
+	end
+
+	def my_locals
+		locals = Local.all.map do |local|
+	      		local.calculate_stars_for_artist(self)
+	    	end
+	    locals.sort_by { |a| a.stars }.reverse
 	end
 
 
