@@ -50,5 +50,8 @@ gem "paperclip", "~> 4.2"
 
 gem 'provincias'
 
+group :test do
+	gem 'rspec-rails'
+end
 
 

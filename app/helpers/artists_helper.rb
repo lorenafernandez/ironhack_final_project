@@ -10,10 +10,7 @@ module ArtistsHelper
 				}	
 
 		type = types[:twitter] # TODO: types[rrss.key]		
-	  link_to "<i class='#{type[0]}'></i>".html_safe, "#{type[1]}=#{rrss}"
+	    link_to "<i class='#{type[0]}'></i>".html_safe, "#{type[1]}=#{rrss}"
 	end	
-
-
-
 
 end

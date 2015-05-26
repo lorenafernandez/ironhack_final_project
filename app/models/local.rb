@@ -14,7 +14,7 @@ class Local < ActiveRecord::Base
 
 	TYPE_OF_AGREEMENTS = [["Alquiler del local","Alquiler del local"],["Comisión de venta" , "Comisión de venta"]]
 
-   #delegate :name, to: :user
+   delegate :name, to: :user
 
     #def to_param
     #	"#{id}-#{name.parameterize}"
@@ -74,7 +74,7 @@ class Local < ActiveRecord::Base
 	##### FILTERS #####
 	
 	def filter_for_artists(show, province)
-		Artist.joins(:user).where("artists.you_are = :show or users.address like :address", 
+		Artist.joins(:user).where("artists.you_are = :show and users.address like :address", 
 					show: show, address: '%' + province + '%')
 	end
 

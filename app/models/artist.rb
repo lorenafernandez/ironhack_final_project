@@ -77,7 +77,7 @@ class Artist < ActiveRecord::Base
 	## FILTERS ##
 
 	def filter_for_locals(show, province)
-		Local.joins(:user).where("locals.you_are = :show or users.address like :address", 
+		Local.joins(:user).where("locals.you_are = :show and users.address like :address", 
 					show: show, address: '%' + province + '%')
 	end
 
