@@ -1,12 +1,12 @@
 == tuarte
 
 tuarte te ofrece: 
- Si eres un artista, te enseñamos los locales que más se ajustan a tus características.
 
+Si eres un artista, te enseñamos los locales que más se ajustan a tus características.
 
- Para ello, tendrás que "etiquetar tu arte" (decirnos si eres arquitecto, escultor, pintor, fotógrafo o si te dedicas a las artes visuales) y darnos un poquito de información sobre tu forma de trabajar.
+Para ello, tendrás que "etiquetar tu arte" (decirnos si eres arquitecto, escultor, pintor, fotógrafo o si te dedicas a las artes visuales) y darnos un poquito de información sobre tu forma de trabajar.
 
- Si eres un museo, una galería, un café temático,... tendrás que indicarnos con qué tipos de artistas sueles trabajar y qué característis tiene tu local.
+Si eres un museo, una galería, un café temático,... tendrás que indicarnos con qué tipos de artistas sueles trabajar y qué característis tiene tu local.
 
 ¡Tenemos mucho que enseñarte!
 
