@@ -47,6 +47,7 @@
 			<section class="my_section show-artist-information">
 				<% if current_user.artist.present? %>
 						<% current_user.artist.my_locals.each do |local|%>
+							<% if local.stars > 0 %>
 								<section class="clearfix">
 									<div class="item-local">
 											<p class ="item-media" > <%= image_tag local.user.avatar.url(:thumb) %> </p>
@@ -65,6 +66,7 @@
 											</div>
 									</div>
 								</section>
+							<% end %> 
 					    <% end %> 
 				<% end %>
 			

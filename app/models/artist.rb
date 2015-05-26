@@ -33,12 +33,15 @@ class Artist < ActiveRecord::Base
   	end
 
 
-	def my_locals
-	    locals = Local.all.map do |local|
-	      local.calculate_stars_for_artist(self)
-	    end
+
+  	def my_locals
+  		Rails.cache.fetch("my_locals", :expires_in => 1.day) do
+    		locals = Local.all.map do |local|
+	      		local.calculate_stars_for_artist(self)
+	    	end
 	    locals.sort_by { |a| a.stars }.reverse
-  	end
+  		end
+	end
 
 
 	def filter_for_locals(show, province)
