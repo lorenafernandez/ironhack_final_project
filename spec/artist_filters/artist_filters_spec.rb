@@ -19,7 +19,7 @@ RSpec.describe Artist, :type => :model do
   end
 
 
-  it "returns 1 after filter artist when there are 1 match in BD" do
+  it "returns 1 local after filter artist when there are 1 match in BD" do
   	user_juan = User.create!(email: "juan@juan.com", password: "abcd1234", 
   							name: "Juan", address: "Calle Estambul 7, Madrid")
   	gallery = user_juan.create_local!(you_are: "Galería")
@@ -37,7 +37,7 @@ RSpec.describe Artist, :type => :model do
   end
 
 
-  it "returns 2 after filter artist when there are 2 matches in BD" do
+  it "returns an array of two locals after filter artist when there are 2 matches in BD" do
   	user_juan = User.create!(email: "juan@juan.com", password: "abcd1234", 
   							name: "Juan", address: "Calle Oslo 27, Madrid") 
     museum_juan = user_juan.create_local!(you_are: "Museo")
