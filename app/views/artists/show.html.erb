@@ -18,11 +18,13 @@
 					<% if @artist.user.contact_person.present? %>
 						<li> <%= link_to "Página web",  @artist.user.web %></li>
 					<% end %>
-					<% @artist.user.rrss.each do |rrss| %>
-						<li><%= link_to_rrss(rrss) %>
+					<% @artist.user.rrss.each_with_index do |rrss,index| %>
+						<li><%= link_to_rrss(rrss, index) %>
 					<% end %>		
 				</ul>
 			</div>
 		</div>
 	</section>
 </div>
+
+
