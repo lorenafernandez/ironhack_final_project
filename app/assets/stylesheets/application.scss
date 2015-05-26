@@ -181,3 +181,205 @@ nav {
 }
 
 
+
+
+/*  FLEX */
+
+body {
+   font: 24px;
+    font-family: 'Raleway', sans-serif;
+
+   background: white;
+  }
+
+  #main {
+   min-height: 550px;
+   margin: 0px;
+   padding: 0px;
+   display: -webkit-flex;
+   display:         flex;
+   -webkit-flex-flow: row;
+           flex-flow: row;
+   color: white;
+   }
+ 
+  #main > article {
+   margin: 4px;
+   padding: 5px;
+   color: grey;
+   /*border: 1px solid #cccc33;
+   border-radius: 7pt;*/
+   background: white;
+   -webkit-flex: 3 1 60%;
+           flex: 3 1 60%;
+   -webkit-order: 2;
+           order: 2;
+   }
+  
+  #main > nav {
+   margin: 4px;
+   padding: 5px;
+   /*border: 1px solid #8888bb;
+   border-radius: 7pt;*/
+   background: white;
+   -webkit-flex: 1 6 20%;
+           flex: 1 6 20%;
+   -webkit-order: 1;
+           order: 1;
+   }
+  
+  #main > aside {
+   margin: 4px;
+   padding: 5px;
+   /*border: 1px solid #8888bb;
+   border-radius: 7pt;*/
+   background: white;
+   -webkit-flex: 1 6 20%;
+           flex: 1 6 20%;
+   -webkit-order: 3;
+           order: 3;
+   }
+ 
+  header, footer {
+   font-size: 20px;
+   display: block;
+   margin: 4px;
+   padding: 5px;
+   min-height: 50px;
+  /* border: 1px solid #eebb55;
+   border-radius: 7pt;*/
+   background: darkseagreen;
+   color: white;
+   }
+
+   header a{
+    color: white;
+   }
+
+   header a:hover{
+    text-decoration: none;
+    color: grey;
+   }
+
+   footer{
+    min-height: 75px;
+    text-align: center;
+    font-size: 15px;
+}
+
+ 
+  /* Too narrow to support three columns */
+  @media all and (max-width: 640px) {
+  
+   #main, #page {
+    -webkit-flex-flow: column;
+            flex-flow: column;
+   }
+
+   #main > article, #main > nav, #main > aside {
+    /* Return them to document order */
+    -webkit-order: 0;
+            order: 0;
+   }
+  
+   #main > nav, #main > aside, header, footer {
+    min-height: 50px;
+    max-height: 50px;
+   }
+  }
+
+  .navigation {
+  list-style: none;
+  margin: 0; 
+  
+  background:darkseagreen ;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+}
+
+.navigation a:hover {
+  color: $background_color;
+}
+
+.que-es-tuarte{
+  font-size: 28px;
+  color: grey;
+  text-align: justify;
+}
+
+.center{
+  text-align: center;
+}
+
+.button-register{
+  width: 300px;
+  margin-top: 40px;
+}
+
+.button-register a{
+  color: white;
+  font-size: 18px;
+}
+
+.button-register a:hover{
+  color: gainsboro;
+  text-decoration: none;
+}
+
+.ya-tienes-cuenta{
+  margin-top: 40px;
+}
+
+.ya-tienes-cuenta a{
+  color: black;
+}
+
+.ya-tienes-cuenta a:hover{
+  color: $footer_and_header_color;
+  text-decoration: none;
+}
+
+
+
+
+@media all and (max-width: 800px) {
+  .navigation {
+    justify-content: space-around;
+  }
+}
+
+@media all and (max-width: 640px) {
+  .navigation {
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    padding: 0;
+  }
+  
+  .navigation a { 
+    text-align: center; 
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.3); 
+    border-bottom: 1px solid rgba(0,0,0,0.1); 
+  }
+
+  
+  .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+
+  
+}

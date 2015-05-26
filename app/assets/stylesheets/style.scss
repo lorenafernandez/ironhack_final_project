@@ -248,6 +248,8 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 }
 
 .background div{
+	  width: 850px;
+  height: 542px;
 	background-image: url("images/background-tuarte-width-1440.jpg") no-repeat center center fixed;
 	
 }
@@ -263,6 +265,7 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 	margin-right: 36px;
 	border-radius: 5px;
 	font-size: 22px;
+	width: 300px;
 	}
 
 .button a{
