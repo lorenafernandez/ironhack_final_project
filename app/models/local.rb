@@ -16,9 +16,9 @@ class Local < ActiveRecord::Base
 
    delegate :name, to: :user
 
-    #def to_param
-    #	"#{id}-#{name.parameterize}"
-    #end
+    def to_param
+    	"#{id}-#{name.to_s.parameterize}"
+    end
 
   attr_accessor :stars
 

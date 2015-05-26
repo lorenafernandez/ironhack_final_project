@@ -17,12 +17,12 @@ class Artist < ActiveRecord::Base
 
     TYPE_OF_EXPOSITIONS = [["Individuales", "Un único artista"],["En compañía de otros artistas", "Varios artistas"]]
 
-    #delegate :name, to: :user
+    delegate :name, to: :user
 
-    #def to_param
-    #	"#{id}-#{name.parameterize}"
+    def to_param
+    	"#{id}-#{name.to_s.parameterize}"
     	
-    #end	
+    end	
 
     def calculate_stars_for_local(local)
 	    @stars = 0
