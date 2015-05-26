@@ -46,19 +46,17 @@
 
 			<section class="my_section show-artist-information">
 				<% if current_user.artist.present? %>
-						<% current_user.artist.my_locals.each do |id, stars|%>
-							<%local = Local.find id %>
-
+						<% current_user.artist.my_locals.each do |local|%>
 								<section class="clearfix">
 									<div class="item-local">
 											<p class ="item-media" > <%= image_tag local.user.avatar.url(:thumb) %> </p>
 											<div class="item-txt ">
 												<h3> <%= local.user.name %> 
-												<% stars.times do %>
+												<% local.stars.times do %>
 													<i class="flaticon-favourites7"></i>
 												<% end %>
-												<% if stars<=5 %>
-													<%(5-stars).times do %>
+												<% if local.stars<=5 %>
+													<%(5-local.stars).times do %>
 													   <i class="flaticon-favourites-grey"></i>
 													<% end %> 
 												<% end %>

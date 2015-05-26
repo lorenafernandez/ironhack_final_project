@@ -35,6 +35,13 @@ class Artist < ActiveRecord::Base
   end
 
 
+	def my_locals
+    locals = Local.all.map do |local|
+      local.calculate_stars_for_artist(self)
+    end
+    locals.sort_by { |a| a.stars }.reverse
+  end
+
 
 	## FILTERS ##
 
