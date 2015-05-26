@@ -1,8 +1,8 @@
 class Artist < ActiveRecord::Base
 	belongs_to :user
 	has_many :works
-
 	attr_accessor :stars
+	delegate :name, to: :user
 
 	TYPE_OF_ARTISTS = [["Fotógrafo", "Fotografía"], ["Pintor", "Pintura"], ["Escultor", "Escultura"], 
 						["Arquitecto","Arquitectura" ], ["Realizas videoarte", "Artes Visuales"]]
@@ -17,11 +17,9 @@ class Artist < ActiveRecord::Base
 
     TYPE_OF_EXPOSITIONS = [["Individuales", "Un único artista"],["En compañía de otros artistas", "Varios artistas"]]
 
-    delegate :name, to: :user
 
     def to_param
-    	"#{id}-#{name.to_s.parameterize}"
-    	
+    	"#{id}-#{name.to_s.parameterize}"	
     end	
 
     def calculate_stars_for_local(local)
@@ -32,18 +30,16 @@ class Artist < ActiveRecord::Base
 	    @stars += 1 if agreements_with_locals == local.agreements
 	    @stars += 1 if type_of_expositions == local.type_of_exposition
 	    self
-  end
+  	end
 
 
 	def my_locals
-    locals = Local.all.map do |local|
-      local.calculate_stars_for_artist(self)
-    end
-    locals.sort_by { |a| a.stars }.reverse
-  end
+	    locals = Local.all.map do |local|
+	      local.calculate_stars_for_artist(self)
+	    end
+	    locals.sort_by { |a| a.stars }.reverse
+  	end
 
-
-	## FILTERS ##
 
 	def filter_for_locals(show, province)
 		Local.joins(:user).where("locals.you_are = :show and users.address like :address", 

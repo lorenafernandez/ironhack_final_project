@@ -1,57 +1,51 @@
 require "rails_helper"
 
 RSpec.describe Artist, :type => :model do
+
+
+  let(:user_juan) {User.create!(user_params(email: "juan@juan.com"))}
+  let(:user_pepe) {User.create!(user_params(email: "pepe@pepe.com"))}
+  let(:user_paco) {User.create!(user_params(email: "paco@paco.com"))}
+  let(:user_lolo) {User.create!(user_params(email: "lolo@lolo.com"))}
+  let(:user_manuela) {User.create!(user_params(email: "manuela@malasaña.com"))}
+
+
+  let(:coffee) {user_juan.create_local!(you_are: "Café Temático")}
+  let(:museum) {user_pepe.create_local!(you_are: "Museo")}
+  let(:gallery) {user_paco.create_local!(you_are: "Galería")}
+  let(:another_museum) {user_lolo.create_local!(you_are: "Museo")}
+
+  let!(:artist) {user_manuela.create_artist!(you_are: "Fotografía")}
+
+
   it "returns [] after filter artist when there are no matches in BD" do
-  	user_juan = User.create!(email: "juan@juan.com", password: "abcd1234", 
-  							name: "Juan", address: "Calle Estambul 7, Madrid")
-  	coffee = user_juan.create_local!(you_are: "Café Temático")
-
-  	user_pepe = User.create!(email: "pepe@pepe.com", password: "abcd1234", 
-  							name: "Pepe", address: "Calle Estambul 7, Madrid") 
-    museum = user_pepe.create_local!(you_are: "Museo")
-
-    user_manuela = User.create!(email: "manuela@malasaña.com", password: "abcd1234", 
-  							name: "manuela")
-    artist = user_manuela.create_artist!(you_are: "Fotografía")
 
     expect(artist.filter_for_locals("Galería", "Madrid")).to eq([])
 
   end
 
 
-  it "returns 1 local after filter artist when there are 1 match in BD" do
-  	user_juan = User.create!(email: "juan@juan.com", password: "abcd1234", 
-  							name: "Juan", address: "Calle Estambul 7, Madrid")
-  	gallery = user_juan.create_local!(you_are: "Galería")
+  it "returns 1 local after filter artist when there are 1 match in BD" do  
 
-  	user_pepe = User.create!(email: "pepe@pepe.com", password: "abcd1234", 
-  							name: "Pepe", address: "Calle Estambul 7, Madrid") 
-    museum = user_pepe.create_local!(you_are: "Museo")
-
-    user_manuela = User.create!(email: "manuela@malasaña.com", password: "abcd1234", 
-  							name: "manuela")
-    artist = user_manuela.create_artist!(you_are: "Fotografía")
-
-    expect(artist.filter_for_locals("Galería", "Madrid").first).to eq(gallery)
+    expect(artist.filter_for_locals("Café Temático", "Madrid")).to eq([coffee])
 
   end
 
 
   it "returns an array of two locals after filter artist when there are 2 matches in BD" do
-  	user_juan = User.create!(email: "juan@juan.com", password: "abcd1234", 
-  							name: "Juan", address: "Calle Oslo 27, Madrid") 
-    museum_juan = user_juan.create_local!(you_are: "Museo")
 
-  	user_pepe = User.create!(email: "pepe@pepe.com", password: "abcd1234", 
-  							name: "Pepe", address: "Calle Estambul 7, Madrid") 
-    museum_pepe = user_pepe.create_local!(you_are: "Museo")
+    expect(artist.filter_for_locals("Museo", "Madrid")).to eq([museum,another_museum])
 
-    user_manuela = User.create!(email: "manuela@malasaña.com", password: "abcd1234", 
-  							name: "manuela")
-    artist = user_manuela.create_artist!(you_are: "Fotografía")
+  end
 
-    expect(artist.filter_for_locals("Museo", "Madrid")).to eq([museum_juan,museum_pepe])
-
+  private
+  def user_params(args={})
+    {
+     email: "pepe@pepe.com",
+     password: "abcd1234",
+     name: 'Pepe', 
+     address: "Calle Estambul 7, Madrid" 
+     }.merge(args)
   end
 
 

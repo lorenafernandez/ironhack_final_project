@@ -1,5 +1,8 @@
 class Local < ActiveRecord::Base
 	belongs_to :user
+	delegate :name, to: :user
+	attr_accessor :stars
+
 
 	TYPE_OF_LOCALS = [["Galería", "Galería"], ["Museo", "Museo"], ["Café Temático", "Café Temático"],
 					  ["Centro Cultural / Fundación ", "Centro Cultural / Fundación "],
@@ -14,37 +17,36 @@ class Local < ActiveRecord::Base
 
 	TYPE_OF_AGREEMENTS = [["Alquiler del local","Alquiler del local"],["Comisión de venta" , "Comisión de venta"]]
 
-   delegate :name, to: :user
+  
 
     def to_param
     	"#{id}-#{name.to_s.parameterize}"
     end
 
-  attr_accessor :stars
 
-  def calculate_stars_for_artist(artist)
-    @stars = 0
-    @stars += 1 if shows == artist.you_are
-    @stars += 1 if you_are == artist.type_of_locals
-    @stars += 1 if type_of_professional == artist.type_of_professional
-    @stars += 1 if agreements == artist.agreements_with_locals
-    @stars += 1 if type_of_exposition == artist.type_of_expositions
-    self
-  end
+	def calculate_stars_for_artist(artist)
+	    @stars = 0
+	    @stars += 1 if shows == artist.you_are
+	    @stars += 1 if you_are == artist.type_of_locals
+	    @stars += 1 if type_of_professional == artist.type_of_professional
+	    @stars += 1 if agreements == artist.agreements_with_locals
+	    @stars += 1 if type_of_exposition == artist.type_of_expositions
+	    self
+	end
 
 
-  def my_artists
-    artists = Artist.all.map do |artist|
-      artist.calculate_stars_for_local(self)
-    end
-    artists.sort_by { |a| a.stars }.reverse
-  end
+	def my_artists
+	    artists = Artist.all.map do |artist|
+	      artist.calculate_stars_for_local(self)
+	    end
+	    artists.sort_by { |a| a.stars }.reverse
+	end
 
 	
-  def filter_for_artists(show, province)
-	Artist.joins(:user).where("artists.you_are = :show and users.address like :address", 
-					show: show, address: '%' + province + '%')
-  end
+	def filter_for_artists(show, province)
+		Artist.joins(:user).where("artists.you_are = :show and users.address like :address", 
+						show: show, address: '%' + province + '%')
+	end
 
 end
 
