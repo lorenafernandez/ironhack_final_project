@@ -1,28 +1,23 @@
-== README
+== tuarte
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+tuarte te ofrece: 
+<p> Si eres un <strong>artista</strong>, te enseñamos los locales que más se ajustan a tus características.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Para ello, tendrás que "etiquetar tu arte" (decirnos si eres <strong>arquitecto</strong>, <strong>escultor</strong>, <strong>pintor</strong>, <strong>fotógrafo</strong> o si te dedicas a las <strong> artes visuales </strong>) y darnos un poquito de información sobre tu forma de trabajar.</p>
+
+<p> Si eres un <strong> museo </strong>, una <strong> galería </strong>, un <strong> café temático</strong>,... tendrás que indicarnos con qué tipos de artistas sueles trabajar y qué característis tiene tu local.</p>
+
+<p> <strong> ¡Tenemos mucho que enseñarte!</strong> </p>
+Things you may know:
+
+* Ruby version: 2.1.2p95
+
+* Rails: 4.2.1 
+
+* Database: PostgreSQL (gem 'pg')
+
+* Database initialization: rake db:seed
+
+* How to run the test suite: rspec spec
+
