@@ -2,6 +2,8 @@ class Artist < ActiveRecord::Base
 	belongs_to :user
 	has_many :works
 
+	attr_accessor :stars
+
 	TYPE_OF_ARTISTS = [["Fotógrafo", "Fotografía"], ["Pintor", "Pintura"], ["Escultor", "Escultura"], 
 						["Arquitecto","Arquitectura" ], ["Realizas videoarte", "Artes Visuales"]]
 
@@ -22,57 +24,17 @@ class Artist < ActiveRecord::Base
     	
     #end	
 
+    def calculate_stars_for_local(local)
+	    @stars = 0
+	    @stars += 1 if you_are == local.shows
+	    @stars += 1 if type_of_locals == local.you_are
+	    @stars += 1 if type_of_professional == local.type_of_professional
+	    @stars += 1 if agreements_with_locals == local.agreements
+	    @stars += 1 if type_of_expositions == local.type_of_exposition
+	    self
+  end
 
 
-	def my_locals
-		matches = Hash.new
-		matches.default = 0
-		find_match_type_of_artist(matches)	
-	end
-
-	def find_match_type_of_artist(matches)
-		match_type_of_artist = Local.where("shows=?", user.artist.you_are)
-		match_type_of_artist.each do |match|
-			matches[match.id] += 1 
-		end
-		find_match_type_of_local(matches)
-	end
-
-	def find_match_type_of_local(matches)
-		match_type_of_local = Local.where("you_are=?", user.artist.type_of_locals)
-		match_type_of_local.each do |match|
-			matches[match.id] += 1  
-		end
-		find_match_type_of_professional(matches)
-	end
-
-	def find_match_type_of_professional(matches)
-		match_type_of_professional = Local.where("type_of_professional=?", user.artist.type_of_professional)
-		match_type_of_professional.each do |match|
-			matches[match.id] += 1 
-		end
-		find_match_type_of_agreements(matches)
-	end
-
-	def find_match_type_of_agreements(matches)
-		match_type_of_agreements = Local.where("agreements=?", user.artist.agreements_with_locals)
-		match_type_of_agreements.each do |match|
-			matches[match.id] += 1 
-		end
-		find_match_type_of_expositions(matches)
-	end
-
-	def find_match_type_of_expositions(matches)
-		match_type_of_expositions = Local.where("type_of_exposition=?", user.artist.type_of_expositions)
-		match_type_of_expositions.each do |match|
-			matches[match.id] += 1 
-	    end
-	    sorted_locals(matches)
-	end
-
-	def sorted_locals(matches)
-		matches = Hash[matches.sort_by{|k, v| v}.reverse]
-	end
 
 	## FILTERS ##
 

@@ -8,7 +8,7 @@ RSpec.describe Artist, :type => :model do
 
   	user_pepe = User.create!(email: "pepe@pepe.com", password: "abcd1234", 
   							name: "Pepe", address: "Calle Estambul 7, Madrid") 
-    museum = user_juan.create_local!(you_are: "Museo")
+    museum = user_pepe.create_local!(you_are: "Museo")
 
     user_manuela = User.create!(email: "manuela@malasaña.com", password: "abcd1234", 
   							name: "manuela")

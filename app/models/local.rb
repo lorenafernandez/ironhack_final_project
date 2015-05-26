@@ -18,13 +18,24 @@ class Local < ActiveRecord::Base
 
     #def to_param
     #	"#{id}-#{name.parameterize}"
-    #end	
+    #end
 
-	def my_artists
-		matches = Hash.new
-		matches.default = 0
-		find_match_type_of_artist(matches)	
-	end
+ 
+
+
+  def my_artists
+    artists = Artist.all.map do |artist|
+      artist.calculate_stars_for_local(self)
+    end
+    artists.sort_by { |a| a.stars }.reverse
+
+  end
+
+	#def my_artists
+	#	matches = Hash.new
+	#	matches.default = 0
+	#	find_match_type_of_artist(matches)	
+	#end
 
 	def find_match_type_of_artist(matches)
 		match_type_of_artist = Artist.where("you_are=?", user.local.shows)

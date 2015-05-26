@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20150522113552) do
     t.string   "address"
     t.string   "web"
     t.string   "rrss",                                             array: true
-    t.json     "rrsss"
     t.string   "role"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
