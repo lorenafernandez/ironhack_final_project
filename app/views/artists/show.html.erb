@@ -1,3 +1,8 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 <% if @artist == current_user.artist %>
 	<%= render '/artists/private_header' %>
 <% else %>
@@ -13,18 +18,26 @@
 				<p> <strong> Biografía: </strong><%= @artist.user.biography %></p> 
 				<p> <strong> Persona de contacto: </strong><%= @artist.user.contact_person %> </p>
 				<p> <strong> Teléfono: </strong><%= @artist.user.phone_number %> </p>
-				<p> <strong> Dirección: </strong><%= @artist.user.address %> </p>
+				<p> <strong> Dirección: </strong><%= @artist.user.address %>
+
+				<% if current_user.artist.works.present?%>
+			  			<a href="#myModal" class="button" data-toggle="modal" 
+			  			style="color: white;text-decoration: none;"> Listado de mis Obra</a>
+			    <% end %>
+				 </p>
 				<ul>
 					<% if @artist.user.contact_person.present? %>
 						<li> <%= link_to "Página web",  @artist.user.web %></li>
 					<% end %>
 					<% @artist.user.rrss.each_with_index do |rrss,index| %>
 						<li><%= link_to_rrss(rrss, index) %>
-					<% end %>		
+					<% end %>
+
 				</ul>
+				
 			</div>
 		</div>
 	</section>
 </div>
 
-
+<%= render 'modal' %>
