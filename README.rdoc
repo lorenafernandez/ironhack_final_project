@@ -1,4 +1,4 @@
-== tuarte
+= tuarte
 
 tuarte te ofrece: 
 
@@ -10,7 +10,7 @@ Si eres un museo, una galería, un café temático,... tendrás que indicarnos c
 
 ¡Tenemos mucho que enseñarte!
 
-= Things you may know:
+== Things you may know:
 
 * Ruby version: 2.1.2p95
 
