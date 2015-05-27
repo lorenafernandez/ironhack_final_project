@@ -205,7 +205,7 @@
 				       :rrss => [twitter, facebook, instagram, pinterest, google_plus], 
 				       :role => 'Local'
 				       
-	local = user.create_local(:you_are => 'Centro Educativo', :shows => 'Artes Visuales',:type_of_professional => 'Consagrados', 
+	local = user.create_local(:you_are => 'Museo', :shows => 'Artes Visuales',:type_of_professional => 'Consagrados', 
 		:type_of_exposition => 'Varios artistas', :agreements => 'Alquiler del local')
 }
 

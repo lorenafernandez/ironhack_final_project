@@ -10,7 +10,7 @@
 	<% local = Local.find params[:id] %>
 	
 		<div class="item-local">
-			<p class ="item-media" > <%= image_tag local.user.avatar.url(:medium) %> </p>
+			<p class ="item-media" style="margin-top: 60px;"> <%= image_tag local.user.avatar.url(:medium) %> </p>
 				<div class="item-show">
 					<h3> <strong>  <%= local.you_are%></strong> de <%= local.user.name %> </h3> 
 					<p> <strong> Biografía: </strong><%= local.user.biography %></p> 
