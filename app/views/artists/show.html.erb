@@ -8,8 +8,8 @@
 <% else %>
 	<%= render '/artists/public_header' %>
 <% end %>
-
-<div class="description">	
+<div id='main'>	
+<article>
 	<section class="clearfix">
 		<div class="item-local">
 			<p class ="item-media" > <%= image_tag @artist.user.avatar.url(:medium) %> </p>
@@ -38,6 +38,11 @@
 			</div>
 		</div>
 	</section>
-</div>
 
 <%= render 'modal' %>
+
+</article>
+ <nav ></nav>
+	    
+	    	<aside></aside>
+ 		</div>

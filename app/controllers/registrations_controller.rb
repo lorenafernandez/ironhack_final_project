@@ -46,7 +46,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     def user_params
       params.require(:user).permit(:name, :biography, :contact_person, :phone_number, 
-                                   :address, :web, :avatar, {rrsss: []}, :google_plus)
+                                   :address, :web, :avatar, {rrss:[]}, :google_plus)
     end
 
 

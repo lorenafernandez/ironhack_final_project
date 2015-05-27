@@ -369,6 +369,51 @@ body {
   width: 400px;
 }
 
+.color-grey{
+  color: grey;
+}
+
+.container-height{
+  min-height: 225px;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  
+  justify-content: space-around;
+}
+
+.flex-item {
+  padding: 5px;
+  width: 600px;
+  height: 250px;
+  margin-top: 10px;
+  
+  line-height: 150px;
+  color: grey;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
+
+.flex-item a {
+  color: $footer_and_header_color;
+}
+
+.flex-item a:hover{
+  color:black;
+  text-decoration: none;
+}
+
+.welcome-image article img{
+  width: 650px;
+}
 
 @media all and (max-width: 800px) {
   .navigation {

@@ -119,8 +119,6 @@ $error_colors: lemonchiffon;
 }
 
 
-
-
 }
 
 .btton_register{
@@ -135,6 +133,10 @@ $error_colors: lemonchiffon;
 	font-size: 14px;
 	border-radius: 5px;
 	width: $width_device - 20;
+}
+
+.bttn_little{
+	width:200px;
 }
 
 .sign_up{
@@ -279,10 +281,11 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 }
 
 .localization_button{
+	color: black;
+	padding-left: 47px;
 	background: $footer_and_header_color;
 	width: 288px;
 	height: 30px;
-	margin-left: 35px;
 	border-radius: 5px;
 	font-size: 20px;
 	}
@@ -297,6 +300,13 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 	width: 75px;
 	height: 50px;
 	border: 50%;
+}
+
+.item-media img{
+	  border-radius: 50%;
+	    width: 300px;
+	    vertical-align: middle;
+	      padding-right: 100;
 }
 
 .description img{

@@ -1,34 +1,37 @@
+<article>
 
 	<%= form_for artist do |f| %>
 
-		<div class="my_field">
+		<div>
 		    <%= f.label :you_are, "Eres *" %>
-			<%= f.select(:you_are, options_for_select(Artist::TYPE_OF_ARTISTS)) %>
+			<p class="form_input"><%= f.select(:you_are, options_for_select(Artist::TYPE_OF_ARTISTS)) %></p>
 		</div>
 
-		<div class="my_field">
+		<div>
 		    <%= f.label :type_of_professional, "Tipo de profesional *" %>
-			<%= f.select(:type_of_professional, options_for_select(Artist::TYPE_OF_PROFESSIONALS)) %>
+			<p class="form_input"><%= f.select(:type_of_professional, options_for_select(Artist::TYPE_OF_PROFESSIONALS)) %></p>
 		</div>
 
-		<div class="my_field">
+		<div>
 		    <%= f.label :type_of_locals, "Lugares en los que sueles exponer *" %>
-			<%= f.select(:type_of_locals, options_for_select(Artist::TYPE_OF_LOCALS)) %>
+			<p class="form_input"><%= f.select(:type_of_locals, options_for_select(Artist::TYPE_OF_LOCALS)) %></p>
 		</div>
 
-		<div class="my_field">
+		<div>
 		    <%= f.label :agreements_with_locals, "Te interesaría un local *" %>
-			<%= f.select(:agreements_with_locals, options_for_select(Artist::TYPE_OF_AGREEMENTS)) %>
+			<p class="form_input"><%= f.select(:agreements_with_locals, options_for_select(Artist::TYPE_OF_AGREEMENTS)) %></p>
 		</div>
 
-		<div class="my_field">
+		<div>
 		    <%= f.label :type_of_expositions, "Te gusta que tus exposiciones sean *" %>
-			<%= f.select(:type_of_expositions, options_for_select(Artist::TYPE_OF_EXPOSITIONS)) %>
+			<p class="form_input"><%= f.select(:type_of_expositions, options_for_select(Artist::TYPE_OF_EXPOSITIONS)) %></p>
 		</div>
 
-      	<div class="btton_register">
+      	<div class="btton_register button-sumit">
       	  	<%= f.submit"Finalizar" %>
       	</div>
 
 
 	<% end %>
+
+	</article>
