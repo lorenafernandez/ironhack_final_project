@@ -1,39 +1,43 @@
 <%= render 'header' %>
 
-<div class="clearfix">
-	<div class="register sign_up last_register">
-    <p>AÑADE UNA OBRA EN <strong> TUARTE </strong> </p>
-    <p><small> Todos los campos marcados con * son obligatorios </small></p>
+
+<div id='main'>
+<article>
+
+    <h1>AÑADE UNA OBRA EN <strong> TUARTE </strong> </h1>
+    <p>Todos los campos marcados con * son obligatorios </p>
 	
 	<%= form_for [@artist, @work] do |f| %>
 
-		<div class="my_field">
+		<div>
 		    <%= f.label :title, "Título *" %>
-			<%= f.text_field :title%>
+			<p class="form_input"><%= f.text_field :title%></p>
 		</div>
 
-		<div class="my_field">
+		<div>
 		    <%= f.label :size, "Dimensiones *" %>
-			<%= f.text_field :size, :placeholder => " 50 x 50 cm"%>
+			<p class="form_input"><%= f.text_field :size, :placeholder => " 50 x 50 cm"%></p>
 		</div>
 
-		<div class="my_field">
+		<div>
 		    <%= f.label :price, "Precio *" %>
-			<%= f.text_field :price %>
+			<p class="form_input"><%= f.text_field :price %></p>
 		</div>
 
-		<div class="my_field">
+		<div>
 	        <%= f.label :avatar, "Imagen" %>
-	        <%= f.file_field :avatar %>
+	        <p class="form_input"><%= f.file_field :avatar %></p>
       	</div>
 		
-		<div class="btton_register">
+		<div class="btton_register button-sumit">
       	  	<%= submit_tag "Finalizar" %>
       	</div>
 
 	<% end %>
-</div>
+
+</article>
+<nav ></nav>
+    
+    	<aside></aside>
 
 </div>
-
-

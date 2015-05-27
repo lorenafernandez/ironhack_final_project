@@ -362,6 +362,10 @@ body {
   width: 200px;
 }
 
+.button-password{
+  width: 300px;
+}
+
 .ya-tienes-cuenta{
   margin-top: 40px;
 }
@@ -395,10 +399,14 @@ display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  border: 1px solid grey;
-  border-radius: 5px;
+  
   
   justify-content: space-around;
+}
+
+.border-container{
+  border: 1px solid grey;
+  border-radius: 5px;
 }
 
 .flex-item {
@@ -417,7 +425,7 @@ display: -webkit-box;
 .flex-artist{
   padding: 20px;
   width: 800px;
-  height: 200px;
+  min-height: 200px;
   margin-top: 10px;
   font-size: 1.1em;
   text-align: left;

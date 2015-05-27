@@ -1,20 +1,21 @@
-<div class="register sign_up">
-		<p>¿Has olvidado tu password?</p>
+<article>
+		<h1>¿Has olvidado tu password?</h1>
 
 		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 		  <%= devise_error_messages! %>
 
-		  <div class="my_field">
+		  <div>
 		    <%= f.label :email, "Introduce el email al que enviaremos tu nuevo password"%><br />
-		    <%= f.email_field :email, autofocus: true %>
+		    <p class="form_input"><%= f.email_field :email, autofocus: true %>
 		  </div>
 
-		  <div class="btton_register">
+		  <div class="btton_register button-password">
 		    <%= f.submit "Envíame un nuevo password!" %>
 		  </div>
 		<% end %>
 
-		<p> <small> ¿Ya tienes una cuenta? <%= link_to "Inicia Sesión", user_session_path %> </small> </p>
-		<p> <small>¿Todavía no tienes una cuenta?<%= link_to "¡REGÍSTRATE!", new_user_registration_path %> </small> </p>
+		<p class="ya-tienes-cuenta">¿Ya tienes una cuenta? <strong><%= link_to "Inicia Sesión", user_session_path %></strong></p>
+		<p class="ya-tienes-cuenta">¿Todavía no tienes una cuenta?
+		<strong><%= link_to "¡REGÍSTRATE!", new_user_registration_path %></strong> </p>
 
-</div>
+</article>

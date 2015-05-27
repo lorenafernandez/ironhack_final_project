@@ -1,7 +1,20 @@
 <%= render 'header' %>
-<div class="welcome">
-	<h1> ¡Enhorabuena! </h1>
-	<h3> Has subido una correctamente a <strong>tuarte</strong> </h3>
-	<h4> En cualquier momento puedes añadir más obras a tu catálogo</h4>
-	<h4> <%= link_to "Volver", home_artist_path(current_user.artist)%></h5>
+<div id='main'>
+	<article class="center color-grey container-height">
+	<ul class="flex-container">	
+
+  		<li class="flex-item">
+			<h1> ¡Enhorabuena! </h1>
+			<h3> Has subido una obra correctamente a <strong>tuarte</strong> </h3>
+			<h4> En cualquier momento puedes añadir más obras a tu catálogo</h4>
+			<h4> <%= link_to "Volver", home_artist_path(current_user.artist)%></h4>
+		</li>
+	</ul>
+	<%= image_tag("Well-Done.png") %>
+	</article>
+
+<nav ></nav>
+    
+    	<aside></aside>
+
 </div>

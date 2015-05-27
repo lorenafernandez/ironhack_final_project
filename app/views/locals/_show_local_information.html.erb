@@ -1,13 +1,63 @@
-<p class="user"> <%= image_tag current_user.avatar.url(:medium) %> </p>
-<%#= @local.you_are %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-<div class="clearfix">
+ <div id='main'>
 
-	<aside class="my_aside">
-		<p> ESTOY BUSCANDO... </p>
+    <article>
+		
+	<h4 class="center"> <strong > ESTOS SON LOS ARTISTAS QUE MEJOR SE ADAPTAN A TUS NECESIDADES </strong></h4>
+	<br>
+	<% if current_user.local.present? %>
+		<% current_user.local.my_artists.each do |artist|%>
+			<% if artist.stars > 0 %>
 
-		<div class="my_field">
-			<%= form_tag (artist_filters_local_path) do %>
+			<ul class="flex-container border-container">
+				<li class="flex-artist"> 
+					<p class ="item-media" style="width:75px;"> <%= image_tag artist.user.avatar.url(:thumb) %> </p>
+							<div class="item-txt ">
+								<h3> <%= artist.you_are %> 
+								<% artist.stars.times do %>
+									<i class="flaticon-favourites7"></i>
+								<% end %>
+								<% if artist.stars<=5 %>
+									<%(5-artist.stars).times do %>
+										<i class="flaticon-favourites-grey"></i>
+									<% end %> 
+								<% end %>
+								</h3> 
+								<h4> <%= artist.user.name %> </h4>
+								<p>  <strong>Biografía: </strong><%= artist.user.biography %></p> 
+								<p> <%= link_to "Ver más" , artist_path(artist) %></p>
+								
+							</div>
+					
+				</li>
+			</ul>
+
+			<% end %> 
+		<% end %> 
+	<% end %>
+
+
+
+    	
+    </article>
+
+    <nav>
+
+
+    
+
+  		<p class="user user-home">  <%= image_tag current_user.avatar.url(:medium) %> </p> 
+		 
+    	
+    </nav>
+
+    <aside >
+    <p style="border-bottom: 1px solid grey; "> ESTOY BUSCANDO... </p>  
+					<%= form_tag (artist_filters_local_path) do %>
 
 				  <div class="my_field">
 				    <%= label_tag 'you_are', 'Un artista:' %>
@@ -25,34 +75,9 @@
       			  </div>
 
 			<% end %>
-		</div>
+				
+    	
+    </aside>
 
-	</aside>
+ </div>
 
-	<section class="my_section">
-		<% if current_user.local.present? %>
-			<% current_user.local.my_artists.each do |artist|%>
-				<% if artist.stars > 0 %>
-					<section class="clearfix">
-						<div class="item-local">
-							<p class ="item-media" > <%= image_tag artist.user.avatar.url(:thumb) %> </p>
-							<div class="item-txt ">
-								<h3> <%= artist.user.name %> 
-								<% artist.stars.times do %>
-									<i class="flaticon-favourites7"></i>
-								<% end %>
-								<% if artist.stars<=5 %>
-									<%(5-artist.stars).times do %>
-										<i class="flaticon-favourites-grey"></i>
-									<% end %> 
-								<% end %>
-								</h3> 
-								<p>  <%= artist.user.biography %></p> <p> <%= link_to "Ver más" , artist_path(artist) %></p>
-							</div>
-						</div>
-					<% end %>
-			<% end %> 
-		<% end %>
-	</section>
-					   
-</div>
