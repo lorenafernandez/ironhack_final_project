@@ -36,7 +36,7 @@ class Local < ActiveRecord::Base
 
 
 	def my_artists
-		Rails.cache.fetch("my_artists", :expires_in => 5.minutes) do
+		Rails.cache.fetch("my_artists", :expires_in => 1.day) do
 		    artists = Artist.all.map do |artist|
 		      artist.calculate_stars_for_local(self)
 		    end

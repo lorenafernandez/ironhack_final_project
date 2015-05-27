@@ -1,5 +1,5 @@
-<div class="register sign_up">
-    <p>ENTRA EN <strong> TUARTE </strong> </p>
+<article>
+    <h1>ENTRA EN <strong> TUARTE </strong> </h1>
       <div class="errors">
         <p class="alert"><%= alert %></p>
       </div>
@@ -30,13 +30,14 @@
         </div>
       <% end -%>
 
-      <div class="btton_register">
+      <div class="btton_register button-sumit">
         <%= f.submit "Enviar" %>
       </div>
     <% end %>
 
-    <p> <small>¿Todavía no tienes una cuenta?<%= link_to "¡REGÍSTRATE!",  new_user_registration_path %> </small> </p>
+    <p class="ya-tienes-cuenta">¿Todavía no tienes una cuenta? 
+    <strong> <%= link_to "¡REGÍSTRATE!",  new_user_registration_path %></strong></p>
 
-    <p> <small><%= link_to "¿Has olvidado tu password?", new_user_password_path %> </small> </p>
+    <p class="ya-tienes-cuenta"><%= link_to "¿Has olvidado tu password?", new_user_password_path %></p>
 
-</div>
+</article>

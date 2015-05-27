@@ -15,36 +15,33 @@
 	<body>
 
 
-	<header > <span style="margin-left: 40px; font-size:40px;">
-			<strong> <%= link_to "tuarte", home_path %> </strong></span>
-<ul class="navigation">
-  <li><%= link_to "¿Qué es <strong>tuarte</strong>?".html_safe, que_es_tuarte_path %> </a></li>
-  <li><%= link_to "Regístrate" , sign_up_path %></li>
-  <li><%= link_to "Inicia Sesión", new_user_session_path %></li>
-</ul>
+	<header > 
+		<span >
+			<strong> <%= link_to "tuarte", home_path %> </strong>
+		</span>
+		<ul class="navigation">
+			  <li><%= link_to "¿Qué es <strong>tuarte</strong>?".html_safe, que_es_tuarte_path %> </a></li>
+			  <li><%= link_to "Regístrate" , sign_up_path %></li>
+			  <li><%= link_to "Inicia Sesión", new_user_session_path %></li>
+		</ul>
 
- </header>
+ 	</header>
 
 	<div id='main'>
-    <article> 
-			<%= yield %></article>
-    <nav >
-    <ul class="flex-container">
- 
-</nav>
-    <aside>
-    	 
-    </aside>
- </div>
 
+	    <article> 
+			<%= yield %>
+		</article>
 
+	    <nav ></nav>
+    
+    	<aside></aside>
+ 	</div>
 		
-			
-		</div>
-		<footer>
-			©COPYRIGHT 2015. LORENA - IRONHACK. TODOS LOS DERECHOS RESERVADOS
-		</footer>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<footer>
+		©COPYRIGHT 2015. LORENA - IRONHACK. TODOS LOS DERECHOS RESERVADOS
+	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 	</body>
 

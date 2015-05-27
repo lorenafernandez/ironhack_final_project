@@ -174,7 +174,7 @@ $error_colors: lemonchiffon;
 
 input, button, select, textarea{
 	border-radius: 5px;
-	width: $width_device - 20;
+	width: $width_device;
 }
 
 button, html input[type="button"], input[type="reset"], input[type="submit"]{
@@ -189,12 +189,12 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 
 .errors p{
 	font-size: 15px;
-	color: $error_colors;
+	color: $footer_and_header_color;
 }
 
 .errors ul{
 	font-size: 15px;
-    color: $error_colors
+    color: $footer_and_header_color;
 	
 }
 
@@ -249,7 +249,7 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 
 .background div{
 	  width: 850px;
-  height: 542px;
+  	height: 542px;
 	background-image: url("images/background-tuarte-width-1440.jpg") no-repeat center center fixed;
 	
 }
