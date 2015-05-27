@@ -5,7 +5,7 @@
 
  <div id='main'>
 
-    <article>
+     <article>
 		
 	<h4 class="center"> <strong > ESTOS SON LOS ESPACIOS QUE MEJOR SE ADAPTAN A TUS NECESIDADES </strong></h4>
 	<br>
@@ -15,7 +15,7 @@
 
 			<ul class="flex-container border-container">
 				<li class="flex-artist"> 
-					<p class ="item-media" style="width: 200px;"> <%= image_tag local.user.avatar.url(:thumb) %> </p>
+					<p class ="item-media" style="width: 175px;"> <%= image_tag local.user.avatar.url(:thumb) %> </p>
 							<div class="item-txt ">
 								<h3> <%= local.you_are %> 
 								<% local.stars.times do %>
@@ -37,9 +37,6 @@
 			<% end %> 
 		<% end %> 
 	<% end %>
-
-
-
     	
     </article>
 
@@ -87,6 +84,39 @@
     	
     </aside>
 
-     <%= render 'modal' %>
- </div>
+    <div id="myModal" class="modal fade">
+	<div class="modal-dialog">
+	 <div class="modal-content" style="width: 275px; ">
+			                <div class="modal-header">
+			                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+			                    </button>
 
+							
+
+
+			                   <h4 class="modal-title black-size" id="modal-title">Artista: 
+			                    <%= current_user.name %></h4>
+			                </div>
+			                <% if current_user.artist.works.present? %>
+				                <% current_user.artist.works.each do |work| %>
+					                <div class="modal-body" id="modal-body">
+					                <p class ="item-media-modal " > <%= image_tag work.avatar.url(:thumb) %></p>
+					                    <p class="black-size"><%= work.title %></p>
+					                </div>
+					                <div class="additional-information black-size" id="additional-information">
+					                	<p style="font-size: 17px;">
+				                    	 <strong>Dimensiones: </strong><small><%= work.size %>cm </small></p >
+				                    	<p style="font-size: 17px;"><strong> Precio: </strong><small><%= work.price %>€</small></p> 
+				                    </ul>
+				                </div>
+				                <% end %>
+				              <%end%>
+			                
+			                <div class="modal-footer">
+			                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			                </div>
+			            </div>
+			        </div>
+		</div>
+
+ </div>

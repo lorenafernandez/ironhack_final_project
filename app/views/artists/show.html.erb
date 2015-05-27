@@ -12,6 +12,7 @@
 <article>
 	<section class="clearfix">
 		<div class="item-local">
+		<% artist = Artist.find params[:id] %>
 			<p class ="item-media" > <%= image_tag @artist.user.avatar.url(:medium) %> </p>
 			<div class="item-show">
 				<h3> <strong>  <%= @artist.you_are%></strong> - <%= @artist.user.name %> </h3> 
