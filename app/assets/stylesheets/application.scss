@@ -225,6 +225,7 @@ body {
   #main > nav {
    margin: 4px;
    padding: 5px;
+
    /*border: 1px solid #8888bb;
    border-radius: 7pt;*/
    background: white;
@@ -232,9 +233,12 @@ body {
            flex: 1 6 20%;
    -webkit-order: 1;
            order: 1;
+
    }
   
   #main > aside {
+    color: grey;
+    font-size: 1.4em;
    margin: 4px;
    padding: 5px;
    /*border: 1px solid #8888bb;
@@ -245,6 +249,12 @@ body {
    -webkit-order: 3;
            order: 3;
    }
+
+.p-aside aside p{
+  font-size: 1.2em;
+}
+
+
  
   header, footer {
    font-size: 20px;
@@ -385,6 +395,8 @@ display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
+  border: 1px solid grey;
+  border-radius: 5px;
   
   justify-content: space-around;
 }
@@ -402,6 +414,15 @@ display: -webkit-box;
   text-align: center;
 }
 
+.flex-artist{
+  padding: 20px;
+  width: 800px;
+  height: 200px;
+  margin-top: 10px;
+  font-size: 1.1em;
+  text-align: left;
+}
+
 .flex-item a {
   color: $footer_and_header_color;
 }
@@ -413,6 +434,22 @@ display: -webkit-box;
 
 .welcome-image article img{
   width: 650px;
+}
+
+.flex-avatar {
+  -webkit-flex: none;
+          flex: none;
+  width: 150px;
+  background: blue;
+  height: 275px;
+}
+
+.flex-artist-information {
+  -webkit-flex: none;
+          flex: none;
+  width: 500px;
+  background: green;
+  height: 275px;
 }
 
 @media all and (max-width: 800px) {
@@ -442,3 +479,10 @@ display: -webkit-box;
 
   
 }
+
+
+
+
+
+
+

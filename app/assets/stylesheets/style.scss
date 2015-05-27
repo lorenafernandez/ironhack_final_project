@@ -249,6 +249,10 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 
 }
 
+.user-home img{
+	margin-left: 50px;
+}
+
 .background div{
 	  width: 850px;
   	height: 542px;
@@ -300,6 +304,14 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 	width: 75px;
 	height: 50px;
 	border: 50%;
+}
+
+.item-media-modal img{
+	width:175px;
+}
+.black-size {
+	color: black;
+	font-size: 18px;
 }
 
 .item-media img{
@@ -381,4 +393,19 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 	background: grey;
 }
 
+.add-work{
+  background: $footer_and_header_color;
+  margin-top: 30px;
+  border-radius: 5px;
+  padding: 22px;
+}
+
+.add-work a{
+	color: white;
+}
+
+.add-work a:hover{
+	color: grey;
+	text-decoration: none;
+}
 

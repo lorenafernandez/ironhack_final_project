@@ -3,34 +3,75 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
+ <div id='main'>
 
-  <% if params[:controller]=="works" && params[:action]=="create" %>
+    <article>
+		
+	
+	<% if current_user.artist.present? %>
+		<% current_user.artist.my_locals.each do |local|%>
+			<% if local.stars > 0 %>
+
+			<ul class="flex-container">
+				<li class="flex-artist"> 
+					<p class ="item-media" style="width: 175px;"> <%= image_tag local.user.avatar.url(:thumb) %> </p>
+							<div class="item-txt ">
+								<h3> <%= local.user.name %> 
+								<% local.stars.times do %>
+									<i class="flaticon-favourites7"></i>
+								<% end %>
+								<% if local.stars<=5 %>
+									<%(5-local.stars).times do %>
+										<i class="flaticon-favourites-grey"></i>
+									<% end %> 
+								<% end %>
+								</h3> 
+								<p>  <%= local.user.biography %></p> <p> <%= link_to "Ver más" , local_path(local) %></p>
+							</div>
+					
+				</li>
+			</ul>
+
+			<% end %> 
+		<% end %> 
+	<% end %>
+
+
+
+    	
+    </article>
+
+    <nav>
+
+
+    <% if params[:controller]=="works" && params[:action]=="create" %>
 		<%= render '/layouts/work_added' %>
-  <% else %>
-		  <p class="user">  <%= image_tag current_user.avatar.url(:medium) %> 
-		  		<span class="button"> <%= link_to "Añadir una Obra", new_artist_work_path(current_user.artist) if current_user.artist.present?%> </span>
-				<% if current_user.artist.works.present?%>
-			  			<a href="#myModal" class="button" data-toggle="modal" 
-			  			style="color: white;text-decoration: none;"> Listado de mis Obra</a>
+  		<% end %>
+
+  		<p class="user user-home">  <%= image_tag current_user.avatar.url(:medium) %> </p> 
+		 <p class="add-work";><%= link_to "Añade una de tus Obra", new_artist_work_path(current_user.artist) if current_user.artist.present?%> 
+		 </p>
+		<br>
+		<p> <% if current_user.artist.works.present?%>
+			  <a href="#myModal" class="add-work" data-toggle="modal" 
+			  	style="color: white;text-decoration: none;"> Listado de mis Obra</a>
 			    <% end %>
-		  </p>
+		</p>
+		 
+    	
+    </nav>
 
-		  <div class="clearfix">
-
-			<aside class="my_aside">
-				<p> ESTOY BUSCANDO... </p>  
-				
-
-				<div class="my_field">
+    <aside >
+    <p style="border-bottom: 1px solid grey; "> ESTOY BUSCANDO... </p>  
 					<%= form_tag (local_filters_artist_path) do %>
 
-						  <div class="my_field">
-						    <%= label_tag 'shows', 'Un espacio para mis obras' %>
+						  <div >
+						    <p class="p-aside"> <%= label_tag 'shows', 'Un espacio para mis obras' %></p>
 							<%= select_tag 'shows', options_for_select(Local::TYPE_OF_LOCALS) %>
 						</div>
 
-						<div class="my_field" id="provinces">
-						 	<% current_user.get_provinces %>
+						<div id="provinces">
+						 	<p class="p-aside"> <% current_user.get_provinces %> </p>
 					        <%= label_tag "province","En la provincia de:" %>
 					        <%= select_tag "province" , options_for_select(User::PROVINCES)%>
 					     </div>
@@ -40,39 +81,10 @@
 		      			  </div>
 
 					<% end %>
-				</div>
+				
+    	
+    </aside>
 
-			</aside>
+     <%= render 'modal' %>
+ </div>
 
-			<section class="my_section show-artist-information">
-				<% if current_user.artist.present? %>
-						<% current_user.artist.my_locals.each do |local|%>
-							<% if local.stars > 0 %>
-								<section class="clearfix">
-									<div class="item-local">
-											<p class ="item-media" > <%= image_tag local.user.avatar.url(:thumb) %> </p>
-											<div class="item-txt ">
-												<h3> <%= local.user.name %> 
-												<% local.stars.times do %>
-													<i class="flaticon-favourites7"></i>
-												<% end %>
-												<% if local.stars<=5 %>
-													<%(5-local.stars).times do %>
-													   <i class="flaticon-favourites-grey"></i>
-													<% end %> 
-												<% end %>
-												</h3> 
-												<p>  <%= local.user.biography %></p> <p> <%= link_to "Ver más" , local_path(local) %></p>
-											</div>
-									</div>
-								</section>
-							<% end %> 
-					    <% end %> 
-				<% end %>
-			
-			</section>
-
-		</div>
-
-		<%= render 'modal' %>
-<% end %>
