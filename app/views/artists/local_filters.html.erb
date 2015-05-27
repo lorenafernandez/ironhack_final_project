@@ -1,6 +1,6 @@
 <%= render '/artists/private_header' %>
-
-<div class="description">
+<div id='main'>
+<article>
 	<% if @locals.empty? %>
 		<p> Lo sentimos, en este momento no existen coincidencias en nuestra base de datos.</p>
 		<p> ¡Inténtalo de nuevo con otros parámetros de búsqueda!</p>
@@ -23,4 +23,10 @@
 			</section>			
 		<% end %>
 	<% end %> 
+</article>
+
+
+	    <nav ></nav>
+    
+    	<aside></aside>
 </div>

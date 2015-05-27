@@ -4,10 +4,11 @@
 	<%= render '/locals/public_header' %>
 <% end %>
 
-<div class="description">
+
+<div id='main'>
+<article>
 	<% local = Local.find params[:id] %>
 	
-	<section class="clearfix">
 		<div class="item-local">
 			<p class ="item-media" > <%= image_tag local.user.avatar.url(:medium) %> </p>
 				<div class="item-show">
@@ -27,7 +28,11 @@
 
 				</div>
 		</div>
-	</section>
+
+</article>
 
 
+	    <nav ></nav>
+    
+    	<aside></aside>
 </div>

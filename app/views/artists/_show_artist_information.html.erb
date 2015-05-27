@@ -7,7 +7,7 @@
 
     <article>
 		
-	<h4 class="center"> <strong > ESTOS SON LOS ESPACIOSS QUE MEJOR SE ADAPTAN A TUS NECESIDADES </strong></h4>
+	<h4 class="center"> <strong > ESTOS SON LOS ESPACIOS QUE MEJOR SE ADAPTAN A TUS NECESIDADES </strong></h4>
 	<br>
 	<% if current_user.artist.present? %>
 		<% current_user.artist.my_locals.each do |local|%>
@@ -15,9 +15,9 @@
 
 			<ul class="flex-container border-container">
 				<li class="flex-artist"> 
-					<p class ="item-media" style="width: 175px;"> <%= image_tag local.user.avatar.url(:thumb) %> </p>
+					<p class ="item-media" style="width: 200px;"> <%= image_tag local.user.avatar.url(:thumb) %> </p>
 							<div class="item-txt ">
-								<h3> <%= local.user.name %> 
+								<h3> <%= local.you_are %> 
 								<% local.stars.times do %>
 									<i class="flaticon-favourites7"></i>
 								<% end %>
@@ -27,7 +27,8 @@
 									<% end %> 
 								<% end %>
 								</h3> 
-								<p>  <%= local.user.biography %></p> <p> <%= link_to "Ver más" , local_path(local) %></p>
+								<h4> <%= local.user.name %> </h4>
+								<p> <strong>Biografía: </strong> <%= local.user.biography %></p> <p> <%= link_to "Ver más" , local_path(local) %></p>
 							</div>
 					
 				</li>
