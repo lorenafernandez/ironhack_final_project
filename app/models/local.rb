@@ -44,7 +44,6 @@ class Local < ActiveRecord::Base
 		end
 	end
 
-
 	
 	def filter_for_artists(show, province)
 		Artist.joins(:user).where("artists.you_are = :show and users.address like :address", 

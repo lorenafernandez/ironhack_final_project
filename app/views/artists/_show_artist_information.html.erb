@@ -5,19 +5,20 @@
 
  <div id='main'>
 
-     <article>
-		
+    <article>	
 	<h4 class="center"> <strong > ESTOS SON LOS ESPACIOS QUE MEJOR SE ADAPTAN A TUS NECESIDADES </strong></h4>
 	<br>
 	<% if current_user.artist.present? %>
+
 		<% current_user.artist.my_locals.each do |local|%>
+		
 			<% if local.stars > 0 %>
 
-			<ul class="flex-container border-container">
-				<li class="flex-artist"> 
-					<p class ="item-media" style="width: 175px;"> <%= image_tag local.user.avatar.url(:thumb) %> </p>
-							<div class="item-txt ">
-								<h3> <%= local.you_are %> 
+				<ul class="flex-container border-container">
+					<li class="flex-artist"> 
+						<p class ="item-media" style="width: 175px;"> <%= image_tag local.user.avatar.url(:thumb) %> </p>
+						<div class="item-txt ">
+							<h3> <%= local.you_are %> 
 								<% local.stars.times do %>
 									<i class="flaticon-favourites7"></i>
 								<% end %>
@@ -26,97 +27,87 @@
 										<i class="flaticon-favourites-grey"></i>
 									<% end %> 
 								<% end %>
-								</h3> 
-								<h4> <%= local.user.name %> </h4>
-								<p> <strong>Biografía: </strong> <%= local.user.biography %></p> <p> <%= link_to "Ver más" , local_path(local) %></p>
-							</div>
-					
-				</li>
-			</ul>
+							</h3> 
+							<h4> <%= local.user.name %> </h4>
+							<p> <strong>Biografía: </strong> <%= local.user.biography %></p> <p> <%= link_to "Ver más" , local_path(local) %></p>
+						</div>		
+					</li>
+				</ul>
 
 			<% end %> 
 		<% end %> 
-	<% end %>
-    	
+	<% end %> 	
     </article>
 
+
     <nav>
+	    <% if params[:controller]=="works" && params[:action]=="create" %>
+			<%= render '/layouts/work_added' %>
+	  	<% end %>
 
-
-    <% if params[:controller]=="works" && params[:action]=="create" %>
-		<%= render '/layouts/work_added' %>
-  		<% end %>
-
-  		<p class="user user-home">  <%= image_tag current_user.avatar.url(:medium) %> </p> 
-		 <p class="add-work";><%= link_to "Añade una de tus Obra", new_artist_work_path(current_user.artist) if current_user.artist.present?%> 
-		 </p>
+	  	<p class="user user-home">  <%= image_tag current_user.avatar.url(:medium) %> </p> 
+		<p class="add-work";><%= link_to "Añade una de tus Obra", new_artist_work_path(current_user.artist) 
+		   if current_user.artist.present?%> 
+	    </p>
 		<br>
 		<p> <% if current_user.artist.works.present?%>
-			  <a href="#myModal" class="add-work" data-toggle="modal" 
-			  	style="color: white;text-decoration: none;"> Listado de mis Obra</a>
-			    <% end %>
-		</p>
-		 
-    	
+				<a href="#myModal" class="add-work" data-toggle="modal" style="color: white;text-decoration: none;"> 
+				    Listado de mis Obra</a>
+			<% end %>
+		</p> 	
     </nav>
+
 
     <aside >
     <p style="border-bottom: 1px solid grey; "> ESTOY BUSCANDO... </p>  
-					<%= form_tag (local_filters_artist_path) do %>
+		<%= form_tag (local_filters_artist_path) do %>
 
-						  <div >
-						    <p class="p-aside"> <%= label_tag 'shows', 'Un espacio para mis obras' %></p>
-							<%= select_tag 'shows', options_for_select(Local::TYPE_OF_LOCALS) %>
-						</div>
+			 <div >
+				<p class="p-aside"> <%= label_tag 'shows', 'Un espacio para mis obras' %></p>
+				<%= select_tag 'shows', options_for_select(Local::TYPE_OF_LOCALS) %>
+			</div>
 
-						<div id="provinces">
-						 	<p class="p-aside"> <% current_user.get_provinces %> </p>
-					        <%= label_tag "province","En la provincia de:" %>
-					        <%= select_tag "province" , options_for_select(User::PROVINCES)%>
-					     </div>
+			<div id="provinces">
+				<p class="p-aside"> <% current_user.get_provinces %> </p>
+				<%= label_tag "province","En la provincia de:" %>
+				<%= select_tag "province" , options_for_select(User::PROVINCES)%>
+			</div>
 						 
-						  <div class="btton_register">
-		      	  			<%= submit_tag "Buscar" %>
-		      			  </div>
+			<div class="btton_register">
+		      	<%= submit_tag "Buscar" %>
+		    </div>
 
-					<% end %>
+		<% end %>
 				
     	
     </aside>
 
     <div id="myModal" class="modal fade">
-	<div class="modal-dialog">
-	 <div class="modal-content" style="width: 275px; ">
-			                <div class="modal-header">
-			                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-			                    </button>
-
-							
-
-
-			                   <h4 class="modal-title black-size" id="modal-title">Artista: 
-			                    <%= current_user.name %></h4>
-			                </div>
-			                <% if current_user.artist.works.present? %>
-				                <% current_user.artist.works.each do |work| %>
-					                <div class="modal-body" id="modal-body">
-					                <p class ="item-media-modal " > <%= image_tag work.avatar.url(:thumb) %></p>
-					                    <p class="black-size"><%= work.title %></p>
-					                </div>
-					                <div class="additional-information black-size" id="additional-information">
-					                	<p style="font-size: 17px;">
-				                    	 <strong>Dimensiones: </strong><small><%= work.size %>cm </small></p >
-				                    	<p style="font-size: 17px;"><strong> Precio: </strong><small><%= work.price %>€</small></p> 
-				                    </ul>
-				                </div>
-				                <% end %>
-				              <%end%>
-			                
-			                <div class="modal-footer">
-			                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			                </div>
-			            </div>
+		<div class="modal-dialog">
+	 		<div class="modal-content" style="width: 275px; ">
+			    <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+			        </button>
+			        <h4 class="modal-title black-size" id="modal-title">Artista: <%= current_user.name %></h4>
 			        </div>
+			        <% if current_user.artist.works.present? %>
+				        <% current_user.artist.works.each do |work| %>
+					        <div class="modal-body" id="modal-body">
+					            <p class ="item-media-modal " > <%= image_tag work.avatar.url(:thumb) %></p>
+					            <p class="black-size"><%= work.title %></p>
+					        </div>
+					        <div class="additional-information black-size" id="additional-information">
+					            <p style="font-size: 17px;">
+				                  	<strong>Dimensiones: </strong><small><%= work.size %>cm </small></p >
+				                <p style="font-size: 17px;"><strong> Precio: </strong><small><%= work.price %>€</small></p> 
+				            </div>
+				        <% end %>
+				    <%end%>
+			                
+			        <div class="modal-footer">
+			            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        </div>
+			    </div>
+			</div>
 		</div>
-
- </div>
+	</div>

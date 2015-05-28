@@ -1,11 +1,9 @@
 <header > 
-		<span >
-			<strong> <%= link_to "tuarte", home_artist_path %> </strong>
-		</span>
-		<ul class="navigation">
-			  	<li> <strong> <%= current_user.name %> </strong> </li>
-				<li> <%= link_to "Edita tu perfil" ,  edit_user_registration_path %></li>
-				<li> <%= link_to "Cerrar Sesión", destroy_user_session_path %> </li>
-		</ul>
+	<span ><strong> <%= link_to "tuarte", :back %> </strong></span>
+	<ul class="navigation">
+		<li> <strong> <%= current_user.name %> </strong> </li>
+		<li> <%= link_to "Edita tu perfil" ,  edit_user_registration_path %></li>
+		<li> <%= link_to "Cerrar Sesión", destroy_user_session_path %> </li>
+	</ul>
 </header>
 

@@ -33,7 +33,6 @@ class Artist < ActiveRecord::Base
   	end
 
 
-
   	def my_locals
   		Rails.cache.fetch("local::#{self.id}}::my_artists", :expires_in => 1.day) do
     		locals = Local.all.map do |local|

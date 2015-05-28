@@ -1,6 +1,6 @@
 <%= render '/locals/private_header' %>
 <% if current_user.name.blank? %>
 	<%= render '/users/first_time_you_come_in' %>
-<% elsif  current_user.local.you_are.present?%>
+<% elsif  current_user.local.you_are.present? %>
 	<%= render '/locals/show_local_information' %>
 <% end %>

@@ -6,7 +6,6 @@ class RegistrationsController < Devise::RegistrationsController
     render 'edit'
    end
 
-
 	 def update
 	 	@user = current_user
     if @user.update_attributes(user_params)
@@ -37,7 +36,6 @@ class RegistrationsController < Devise::RegistrationsController
       end
       path
 	  end
-
 
 	  def update_resource(resource, params)
     	 resource.update_without_password(params)

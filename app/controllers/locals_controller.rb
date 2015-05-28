@@ -2,9 +2,7 @@ class LocalsController < ApplicationController
 
 	before_action :load_local, only: [:update, :show, :edit, :artist_filters]
 
-	layout "local"
-
-	
+	layout "local"	
 
 	def new
 		@artist = Artist.new(user_id: current_user.id)
@@ -34,6 +32,7 @@ class LocalsController < ApplicationController
 	def artist_filters
 		@artists = @local.filter_for_artists(params[:you_are], params[:province])
 	end
+
 
 	private
 
