@@ -1,43 +1,41 @@
 <%= render 'header' %>
 
-
 <div id='main'>
-<article>
 
-    <h1>AÑADE UNA OBRA EN <strong> TUARTE </strong> </h1>
-    <p>Todos los campos marcados con * son obligatorios </p>
-	
-	<%= form_for [@artist, @work] do |f| %>
+	<article>
 
-		<div>
-		    <%= f.label :title, "Título *" %>
-			<p class="form_input"><%= f.text_field :title%></p>
-		</div>
-
-		<div>
-		    <%= f.label :size, "Dimensiones *" %>
-			<p class="form_input"><%= f.text_field :size, :placeholder => " 50 x 50 cm"%></p>
-		</div>
-
-		<div>
-		    <%= f.label :price, "Precio *" %>
-			<p class="form_input"><%= f.text_field :price %></p>
-		</div>
-
-		<div>
-	        <%= f.label :avatar, "Imagen" %>
-	        <p class="form_input"><%= f.file_field :avatar %></p>
-      	</div>
+	    <h1>AÑADE UNA OBRA EN <strong> TUARTE </strong> </h1>
+	    <p>Todos los campos marcados con * son obligatorios </p>
 		
-		<div class="btton_register button-sumit">
-      	  	<%= submit_tag "Finalizar" %>
-      	</div>
+		<%= form_for [@artist, @work] do |f| %>
 
-	<% end %>
+			<div>
+			    <%= f.label :title, "Título *" %>
+				<p class="form_input"><%= f.text_field :title%></p>
+			</div>
 
-</article>
-<nav ></nav>
-    
-    	<aside></aside>
+			<div>
+			    <%= f.label :size, "Dimensiones *" %>
+				<p class="form_input"><%= f.text_field :size, :placeholder => " 50 x 50 cm"%></p>
+			</div>
 
+			<div>
+			    <%= f.label :price, "Precio *" %>
+				<p class="form_input"><%= f.text_field :price %></p>
+			</div>
+
+			<div>
+		        <%= f.label :avatar, "Imagen" %>
+		        <p class="form_input"><%= f.file_field :avatar %></p>
+	      	</div>
+			
+			<div class="btton_register button-sumit">
+	      	  	<%= submit_tag "Finalizar" %>
+	      	</div>
+
+		<% end %>
+
+	</article>
+	<nav ></nav>	    
+	<aside></aside>
 </div>

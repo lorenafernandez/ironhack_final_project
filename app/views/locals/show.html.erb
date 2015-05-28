@@ -8,7 +8,6 @@
 <div id='main'>
 <article>
 	<% local = Local.find params[:id] %>
-	
 		<div class="item-local">
 			<p class ="item-media" style="margin-top: 60px;"> <%= image_tag local.user.avatar.url(:medium) %> </p>
 				<div class="item-show">
@@ -19,20 +18,15 @@
 					<p> <strong> Dirección: </strong><%= local.user.address %> </p>
 					<ul>
 						<% if local.user.contact_person.present? %>
-						<li> <%= link_to "Página web",  local.user.web %></li>
-					<% end %>
-					<% local.user.rrss.each_with_index do |rrss,index| %>
-						<li><%= link_to_rrss(rrss, index) %>
-					<% end %>	
+							<li> <%= link_to "Página web",  local.user.web %></li>
+						<% end %>
+						<% local.user.rrss.each_with_index do |rrss,index| %>
+							<li><%= link_to_rrss(rrss, index) %>
+						<% end %>	
 					</ul>
-
 				</div>
 		</div>
-
 </article>
-
-
-	    <nav ></nav>
-    
-    	<aside></aside>
+	<nav ></nav>
+    <aside></aside>
 </div>

@@ -5,17 +5,15 @@
 
  <div id='main'>
 
-    <article>
-		
-	<h4 class="center"> <strong > ESTOS SON LOS ARTISTAS QUE MEJOR SE ADAPTAN A TUS NECESIDADES </strong></h4>
-	<br>
-	<% if current_user.local.present? %>
-		<% current_user.local.my_artists.each do |artist|%>
-			<% if artist.stars > 0 %>
-
-			<ul class="flex-container border-container">
-				<li class="flex-artist"> 
-					<p class ="item-media" style="width:75px;"> <%= image_tag artist.user.avatar.url(:thumb) %> </p>
+    <article>	
+		<h4 class="center"> <strong > ESTOS SON LOS ARTISTAS QUE MEJOR SE ADAPTAN A TUS NECESIDADES </strong></h4>
+		<br>
+		<% if current_user.local.present? %>
+			<% current_user.local.my_artists.each do |artist|%>
+				<% if artist.stars > 0 %>
+					<ul class="flex-container border-container">
+						<li class="flex-artist"> 
+							<p class ="item-media" style="width:75px;"> <%= image_tag artist.user.avatar.url(:thumb) %> </p>
 							<div class="item-txt ">
 								<h3> <%= artist.you_are %> 
 								<% artist.stars.times do %>
@@ -29,37 +27,25 @@
 								</h3> 
 								<h4> <%= artist.user.name %> </h4>
 								<p>  <strong>Biografía: </strong><%= artist.user.biography %></p> 
-								<p> <%= link_to "Ver más" , artist_path(artist) %></p>
-								
+								<p> <%= link_to "Ver más" , artist_path(artist) %></p>	
 							</div>
-					
-				</li>
-			</ul>
-
+						</li>
+					</ul>
+				<% end %> 
 			<% end %> 
-		<% end %> 
-	<% end %>
-
-
-
-    	
+		<% end %> 	
     </article>
 
-    <nav>
-
-
     
-
-  		<p class="user user-home">  <%= image_tag current_user.avatar.url(:medium) %> </p> 
-		 
-    	
+    <nav>
+  		<p class="user user-home">  <%= image_tag current_user.avatar.url(:medium) %> </p> 	
     </nav>
 
     <aside >
     <p style="border-bottom: 1px solid grey; "> ESTOY BUSCANDO... </p>  
-					<%= form_tag (artist_filters_local_path) do %>
+		<%= form_tag (artist_filters_local_path) do %>
 
-				  <div class="my_field">
+				<div class="my_field">
 				    <%= label_tag 'you_are', 'Un artista:' %>
 					<%= select_tag 'you_are', options_for_select(Artist::TYPE_OF_ARTISTS) %>
 				</div>
@@ -70,14 +56,10 @@
 			        <%= select_tag "province" , options_for_select(User::PROVINCES)%>
 			     </div>
 				 
-				  <div class="btton_register">
+				 <div class="btton_register">
       	  			<%= submit_tag "Buscar" %>
-      			  </div>
-
-			<% end %>
-				
-    	
+      			 </div>
+		<% end %>					
     </aside>
-
  </div>
 
