@@ -18,7 +18,8 @@
 				<h3> <strong>  <%= @artist.you_are%></strong> - <%= @artist.user.name %> </h3> 
 				<p> <strong> Biografía: </strong><%= @artist.user.biography %></p> 
 				<p> <strong> Persona de contacto: </strong><%= @artist.user.contact_person %> </p>
-				<p> <strong> Teléfono: </strong><%= @artist.user.phone_number %> </p>
+				<p> <strong> Teléfono: </strong><%= @artist.user.phone_number %> - 
+				    <strong> Email: </strong><%= @artist.user.email %></p>
 				<p> <strong> Dirección: </strong><%= @artist.user.address %>
 				
 				<% if @artist.works.present?%>
