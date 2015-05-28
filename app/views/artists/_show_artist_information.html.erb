@@ -46,8 +46,8 @@
 	  	<% end %>
 
 	  	<p class="user user-home">  <%= image_tag current_user.avatar.url(:medium) %> </p> 
-		<p class="add-work";><%= link_to "Añade una de tus Obra", new_artist_work_path(current_user.artist) 
-		   if current_user.artist.present?%> 
+		<p class="add-work";>
+				<%= link_to "Añade una de tus Obra", new_artist_work_path(current_user.artist) if current_user.artist.present?%> 
 	    </p>
 		<br>
 		<p> <% if current_user.artist.works.present?%>
