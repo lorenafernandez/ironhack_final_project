@@ -37,90 +37,84 @@
     <p>Todos los campos marcados con * son obligatorios</p>
 
     <%= form_for(resource, as: resource_name, url: registration_path(:user), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
-    
-
-      <div >
-        <%= f.label :name, "Nombre *" %>
-        <p class="form_input"><%= f.text_field :name, autocomplete: "off" %></p>
-      </div>
-
-      <div>
-        <%= f.label :biography, "Introduce una breve biografía" %>
-        <%= f.text_area :biography , :rows => "10"%>
-      </div>
-
-      <div>
-        <%= f.label :contact_person, "Persona de contacto *" %>
-        <p class="form_input"><%= f.text_field :contact_person %></p>
-      </div>
-
-      <div>
-        <%= f.label :phone_number, "Teléfono *" %>
-        <p class="form_input"><%= f.text_field :phone_number %></p>
-      </div>
-
-      <div >
-
-          <div class="localization_button" onclick="geoLocate();"><strong> Te geolocalizamos </strong>  </div>
-          
-          <br>
-          <%= f.label :address, "Tu dirección *" %> <small>Puedes introducirla tú mismo si no quieres que lo hagamos por ti</small>
-          <p class="form_input"><input type="text" id="city" name="user[address]"></p>
-          <br>
-          <div id="map"></div>
-      </div>
-     
-
-      <div >
-        <%= f.label :web, "Tu página web"%>
-        <p class="form_input"><%= f.text_field :web , placeholder: "http://www.tuarte.com"%></p>
-      </div>
-
-      <div>
-        <%= f.label :avatar, "Tu imagen" %>
-        <p class="form_input"><%= f.file_field :avatar %></p>
-      </div>
-
-
-      <div>
-        <%= f.label "Tus redes sociales" %>
-        <i class="flaticon-twitter icon_position"></i>
-        <p class="form_input"><input id="user_twitter" name="user[rrss][]" placeholder="@TuUsuarioEnTwitter" type="text"></p>
-      </div>
-
-
-      <div>
-        <i class="flaticon-facebook2 icon_position"></i>
-        <p class="form_input"><input id="user_facebook" name="user[rrss][]" placeholder="TuUsuarioEnFacebook" type="text"></p>
-      </div>
-
-      <div>
-        <i class="flaticon-instagram13 icon_position"></i>
-        <p class="form_input"><input id="user_instagram" name="user[rrss][]" placeholder="TuUsuarioEnInstagram" type="text"></p>
-      </div>
-
-      <div>
-        <i class="flaticon-pinterest11 icon_position"></i>
-        <p class="form_input"><input id="user_pinterest" name="user[rrss][]" placeholder="TuUsuarioEnPinterest" type="text"></p>
-      </div>
-
-      <div>
-        <i class="flaticon-googleplus2 icon_position"></i>
-        <p class="form_input"><input id="user_google_plus" name="user[rrss][]" placeholder="TuUsuarioEnGoogle+" type="text"></p>
-      </div>
-
-
-
-
+        <%= devise_error_messages! %>
       
+        <div>
+          <%= f.label :name, "Nombre *" %>
+          <p class="form_input"><%= f.text_field :name, autocomplete: "off" %></p>
+        </div>
 
-<!--<div>Icons made by <a href="http://www.flaticon.com/authors/elegant-themes" title="Elegant Themes">Elegant Themes</a>, <a href="http://www.flaticon.com/authors/icomoon" title="Icomoon">Icomoon</a>, <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/bogdan-rosu" title="Bogdan Rosu">Bogdan Rosu</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>-->
-    <!-- ------------------ --> 
+        <div>
+          <%= f.label :biography, "Introduce una breve biografía" %>
+          <%= f.text_area :biography , :rows => "10"%>
+        </div>
 
-      <div class="btton_register bttn_little">
-        <strong><%= f.submit "Continuar" %></strong>
-      </div>
+        <div>
+          <%= f.label :contact_person, "Persona de contacto *" %>
+          <p class="form_input"><%= f.text_field :contact_person %></p>
+        </div>
+
+        <div>
+          <%= f.label :phone_number, "Teléfono *" %>
+          <p class="form_input"><%= f.text_field :phone_number %></p>
+        </div>
+
+        <div>
+            <div class="localization_button" onclick="geoLocate();">
+                <strong> Te geolocalizamos </strong>  
+            </div> 
+            <br>
+            <%= f.label :address, "Tu dirección *" %> 
+                <small>Puedes introducirla tú mismo si no quieres que lo hagamos por ti</small>
+            <p class="form_input"><input type="text" id="city" name="user[address]"></p>
+            <br>
+            <div id="map">
+            </div>
+        </div>
+       
+        <div >
+          <%= f.label :web, "Tu página web"%>
+          <p class="form_input"><%= f.text_field :web , placeholder: "http://www.tuarte.com"%></p>
+        </div>
+
+        <div>
+          <%= f.label :avatar, "Tu imagen" %>
+          <p class="form_input"><%= f.file_field :avatar %></p>
+        </div>
+
+        <div>
+          <%= f.label "Tus redes sociales" %>
+          <i class="flaticon-twitter icon_position"></i>
+          <p class="form_input"><input id="user_twitter" name="user[rrss][]" placeholder="@TuUsuarioEnTwitter" type="text">
+          </p>
+        </div>
+
+        <div>
+          <i class="flaticon-facebook2 icon_position"></i>
+          <p class="form_input"><input id="user_facebook" name="user[rrss][]" placeholder="TuUsuarioEnFacebook" type="text"></p>
+        </div>
+
+        <div>
+          <i class="flaticon-instagram13 icon_position"></i>
+          <p class="form_input"><input id="user_instagram" name="user[rrss][]" placeholder="TuUsuarioEnInstagram" type="text"></p>
+        </div>
+
+        <div>
+          <i class="flaticon-pinterest11 icon_position"></i>
+          <p class="form_input"><input id="user_pinterest" name="user[rrss][]" placeholder="TuUsuarioEnPinterest" type="text"></p>
+        </div>
+
+        <div>
+          <i class="flaticon-googleplus2 icon_position"></i>
+          <p class="form_input"><input id="user_google_plus" name="user[rrss][]" placeholder="TuUsuarioEnGoogle+" type="text"></p>
+        </div>     
+
+  <!--<div>Icons made by <a href="http://www.flaticon.com/authors/elegant-themes" title="Elegant Themes">Elegant Themes</a>, <a href="http://www.flaticon.com/authors/icomoon" title="Icomoon">Icomoon</a>, <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/bogdan-rosu" title="Bogdan Rosu">Bogdan Rosu</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>-->
+      <!-- ------------------ --> 
+
+        <div class="btton_register bttn_little">
+          <strong><%= f.submit "Continuar" %></strong>
+        </div>
     <% end %>
 
   

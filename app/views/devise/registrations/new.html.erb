@@ -2,36 +2,35 @@
     <h1>REGÍSTRATE EN <strong> TUARTE </strong> </h1>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-     
-      <%= f.hidden_field :role, :value => params[:form_role]%>
-      <div class="my_field">
-        <%= f.label :email %>
-        <p class="form_input"><%= f.email_field :email, autofocus: true %></p>
-      </div>
+          <%= devise_error_messages! %>
+         
+          <%= f.hidden_field :role, :value => params[:form_role]%>
+          <div class="my_field">
+            <%= f.label :email %>
+            <p class="form_input"><%= f.email_field :email, autofocus: true %></p>
+          </div>
 
-      <div class="my_field">
-        <%= f.label :password %>
-        <% if @validatable %>
-        <em>(Mínimo <%= @minimum_password_length %> caracteres)</em>
-        <% end %> <br>
-        <p class="form_input"> <%= f.password_field :password, autocomplete: "off" %> </p>
-        
-      </div>
+          <div class="my_field">
+            <%= f.label :password %>
+            <% if @validatable %>
+            <em>(Mínimo <%= @minimum_password_length %> caracteres)</em>
+            <% end %> <br>
+            <p class="form_input"> <%= f.password_field :password, autocomplete: "off" %> </p>
+          </div>
 
-      <div class="my_field">
-        <%= f.label :password_confirmation, "Confirmación de password" %>
-        <p class="form_input"><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
-      </div>
-
-      
-      <div class="btton_register button-sumit">
-        <%= f.submit "Enviar" %>
-      </div>
+          <div class="my_field">
+            <%= f.label :password_confirmation, "Confirmación de password" %>
+            <p class="form_input"><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
+          </div>
+    
+          <div class="btton_register button-sumit">
+            <%= f.submit "Enviar" %>
+          </div>
     <% end %>
 
     <p class="ya-tienes-cuenta"> ¿Ya tienes una cuenta? 
-    <strong><%= link_to "Inicia Sesión", user_session_path %> </strong></p>
+    <strong><%= link_to "Inicia Sesión", user_session_path %> </strong>
+    </p>
 
 </article>
 
