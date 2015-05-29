@@ -16,7 +16,7 @@ RSpec.describe Artist, :type => :model do
   let!(:artist) {user_manuela.create_artist!(you_are: "Fotografía")}
 
   it "returns [] after filter artist when there are no matches in BD" do
-    expect(artist.filter_for_locals("Galería", "Madrid")).to eq([])
+    expect(artist.filter_for_locals("Galería", "Sevilla")).to eq([])
   end
 
   it "returns 1 local after filter artist when there are 1 match in BD" do  
