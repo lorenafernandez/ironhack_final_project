@@ -55,3 +55,5 @@ group :test do
 end
 
 
+gem 'dalli'
+

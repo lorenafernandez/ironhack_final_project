@@ -81,7 +81,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 #production:
-#  <<: *default
+# <<: *default
 #  database: yourart_production
 #  username: yourart
-#  password: <%= ENV['YOURART_DATABASE_PASSWORD'] %>
+ # password: <%= ENV['YOURART_DATABASE_PASSWORD'] %>
