@@ -57,3 +57,8 @@ end
 
 gem 'dalli'
 
+
+gem 'aws-sdk', '~> 1.36.1'
+gem 'fog'
+
+gem "figaro", "~> 0.7.0"

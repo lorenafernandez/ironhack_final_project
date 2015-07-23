@@ -17,3 +17,6 @@
 
 # Ignore public/system
 /public/system
+
+# Ignore application configuration
+/config/application.yml
